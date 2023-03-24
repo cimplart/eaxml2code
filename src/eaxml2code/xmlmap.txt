@@ -1,0 +1,169 @@
+
+packagedElement
+    xmi:type = "uml:Package"
+
+packagedElement
+    xmi:type = "uml:Class"
+    name = class name
+
+    ownedAttribute
+        xmi:type = "uml:Property"
+        name = attribute name (e.g. variable name)
+
+        lowerValue
+        upperValue
+            xmi:type = "uml:LiteralInteger"
+
+        type
+            xmi:idref
+
+packagedElement
+    xmi:type = "uml:Dependency"
+    supplier
+    client
+
+packagedElement
+    xmi:type = "uml:Interface"
+    name = interface name
+
+    ownedOperation
+        name = operation name
+
+        ownedParameter
+            name = parameter name
+            direction
+            type = parameter type
+
+packagedElement
+    uml:Association
+        memberEnd
+        ownedEnd
+
+packagedElement
+    xmi:type = "uml:Artifact"
+    name = file name
+
+packagedElement
+    xmi:type = "uml:Enumeration"
+    name = enumeration name or constant group name
+
+    ownedLiteral
+        xmi:type = "uml:EnumerationLiteral"
+        name = enum value name
+
+
+packagedElement
+    xmi:type = "uml:Abstraction"
+    supplier
+    client
+
+thecustomprofile:variables
+    base_Class
+
+C_:struct
+    base_Class
+
+thecustomprofile:header
+    base_Artifact
+
+StandardProfileL2:Source
+    base_Artifact
+
+thecustomprofile:include
+    base_Dependency
+
+thecustomprofile:macros
+    base_Enumeration
+
+
+EA extensions
+-------------
+
+element
+    xmi:type = "uml:Class"
+    xmi:idref = reference to packagedElement
+    name = class name
+        properties
+            documentation = notes
+            stereotype = element stereotype
+        attributes
+            attribute
+                xmi:idref = reference id
+                name = attribute name
+                    initial
+                    documentation
+                    properties
+                        type = attribute (variable) type
+
+element
+    xmi:type = "uml:Interface"
+    xmi:idref = reference to packagedElement
+    name = interface name
+        properties
+            documentation = notes
+        operations
+            operation
+                name = operation name
+                    stereotype
+                        stereotype
+                    type
+                        static = "false" or "true"
+                    documentation
+                        value = notes
+                    parameters
+                        parameter
+                            properties
+                                pos
+                                type
+                                const
+                            documentation
+                                value = notes
+        links
+            Dependency
+                start
+                end
+
+element
+    xmi:type = "uml:Artifact"
+    name = artifact name
+        properties
+            documentation = notes
+            stereotype = the stereotype
+            links
+                Dependency
+                    start
+                    end
+
+element
+    xmi:type = "uml:Enumeration"
+    name = enumeration name
+        properties
+            documentation = notes
+            stereotype
+        attributes
+            attribute
+                name = enum value name
+                    initial
+                        body = set value
+                    documentation
+                        value = notes
+        links
+            Dependency
+                start
+                end
+
+connector
+    source
+    target
+
+
+packagedElement
+    xmi:type = "uml:PrimitiveType"
+    name = type name
+
+packagedElement
+    xmi:type = "uml:Stereotype"
+    name = stereotype name
+        ownedAttribute
+            xmi:type = "uml:Property"
+            name = "base_Operation" or "base_Dependency" or "base_Class" or "base_Artifact" or "base_Enumeration" or "base_Component"

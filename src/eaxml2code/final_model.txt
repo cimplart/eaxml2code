@@ -1,0 +1,94 @@
+headers = dict {
+    header_name: header_content
+}
+
+header_content = dict {
+    'functions': list[ functions_group ]
+    'types': list[ type ]
+    'variables': list [ variables_group ]
+    'macro-constants': list [ macro_constants_group ]
+    'includes': list [ str ]
+    'file-name': str
+    'description': str
+    'generated': bool
+}
+
+functions_group = {
+    'functions-group': str
+    'functions': list [ functions ]
+}
+
+function = dict {
+    'description': str
+    'syntax': str
+    'in-params': list[ parameter ]
+    'out-params': list[ parameter ]
+    'inout-params': list[ parameter ]
+    'return-value': dict {
+        type: str
+        description: str
+    }
+    'description': str
+    'allowed-from-isr': str
+    'is-reentrant': str
+    'is-macro': bool
+    'definition': list [ conditional_code ]
+}
+
+parameter = dict {
+    name: str
+    description: str
+}
+
+type = dict {
+    'description': str
+    'kind': str
+    if 'kind' == 'Typedef':
+        'type': str
+    elif 'kind' == "Structure':
+        'type-name': str
+        'elements': list[ struct-element ]
+    elif 'kind' == 'Enumeration':
+        'type-name': str
+        'constants': list[ constant ]
+    endif
+    }
+
+struct-element = dict {
+    'description': str
+    'type': str
+    'field': str
+}
+
+constant = dict {
+    'name': str
+    'description': str
+    'value': str
+}
+
+variables_group = {
+    'variables-group': str
+    'variables': list [ variable ]
+}
+
+variable = dict {
+    'syntax': str
+    'description': str
+}
+
+macro_constants_group = dict {
+    'constants-group': str
+    'constants': list[ macro_constant ]
+}
+
+macro_constant = dict {
+    'name': str
+    'value': str
+    'description': str
+}
+
+conditional_code = dict {
+    'prepro-conditional': str
+    'condition': str
+    'code': str
+}
