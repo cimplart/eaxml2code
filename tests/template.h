@@ -6,7 +6,7 @@
 ###
 <%!                                             \
     def get_brief(descr):                       \
-        return descr[:descr.index("\n")]        \
+        return descr[:descr.index("\n")] if descr else ''        \
 %>                                              \
 ###
 <%!                                             \
@@ -49,33 +49,28 @@
  * @return ${func_item['return-value']['type']} - ${func_item['return-value']['description']}
 % endif
  */
-% for def_item in func_item['definition']:
-% if def_item['prepro-conditional'] != '':
-${def_item['prepro-conditional']} ${def_item['condition']}
-% endif
-${func_item['syntax']}   <%text>\</%text>
-%for line in def_item['code']:
-    ${line}
-% endfor
-% endfor
-% if func_item['definition'][0]['prepro-conditional'] != '':
-#endif
-% endif
+${func_item['definition']}
 </%def>
 ### render_type() ###
 <%def name="render_type(type_item)">            \
 
 /**
- * ${type_item['description']}
+ * ${get_brief(type_item['description'])}
  * @ingroup ${content['component']}
  */
 % if type_item['kind'] == 'Typedef':
-typedef ${type_item['type']};
+typedef ${type_item['base-type']} ${type_item['type-name']};
 % elif type_item['kind'] == 'Structure':
 typedef struct ${type_item['type-name']} {
 % for sel in type_item['elements']:
     /** ${sel['description']} */
     ${sel['type']} ${sel['field']};
+% endfor
+} ${type_item['type-name']};
+% elif type_item['kind'] == 'Enumeration':
+typedef enum ${type_item['type-name']} {
+% for item in type_item['constants']:
+    ${item['name']}${get_enum_initializer(item)},       ///< ${item['description']}
 % endfor
 } ${type_item['type-name']};
 % endif
@@ -135,6 +130,7 @@ ${func_item['syntax']};
 
 % endif
 ##
+
 % for i in content['includes']:
 #include "${i}"
 % endfor
@@ -181,7 +177,11 @@ ${render_variable(v)}
  * @addtogroup ${get_group(content, fg)} @{
  */
 %     for f in fg['functions']:
+%        if f['is-macro']:
+${render_macro_function(f)}
+%        else:
 ${render_function(f)}
+%        endif
 %    endfor
 /** @} */
 

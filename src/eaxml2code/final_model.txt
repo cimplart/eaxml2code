@@ -32,7 +32,7 @@ function = dict {
     'allowed-from-isr': str
     'is-reentrant': str
     'is-macro': bool
-    'definition': list [ conditional_code ]
+    'definition': str
 }
 
 parameter = dict {
@@ -44,7 +44,8 @@ type = dict {
     'description': str
     'kind': str
     if 'kind' == 'Typedef':
-        'type': str
+        'type-name': str
+        'base-type': str
     elif 'kind' == "Structure':
         'type-name': str
         'elements': list[ struct-element ]
@@ -85,10 +86,4 @@ macro_constant = dict {
     'name': str
     'value': str
     'description': str
-}
-
-conditional_code = dict {
-    'prepro-conditional': str
-    'condition': str
-    'code': str
 }

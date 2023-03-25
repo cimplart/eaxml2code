@@ -52,6 +52,7 @@ class ModelBuilder:
             'ownedOperation': self.visit_owned_operation,
             'ownedLiteral': self.visit_owned_literal,
             'element': self.visit_ea_element,
+            'connector': self.visit_ea_connector,
             'attribute': self.visit_ea_attribute,
             'operation': self.visit_ea_operation
         }
@@ -157,6 +158,10 @@ class ModelBuilder:
                         found['generated'] = self._extract_generated(found['name'], found['description'])
                 if 'stereotype' in c['attributes']:
                     found['stereotype'] = c['attributes']['stereotype']
+            elif c['name'] == 'links' and found.get('stereotype', '') == 'typedef':
+                for cc in c['children']:
+                    if cc['name'] == 'Generalization':
+                        found['base:id'] = cc['attributes']['end']
 
     def _extract_header(self, el_name, notes):
         for line in notes.split('\n'):
@@ -177,10 +182,14 @@ class ModelBuilder:
         assert found['name'] == node['attributes']['name']
 
         for c in node['children']:
-            if c['name'] == 'initial' and "attributes" in c:
-                found['initial'] = c["attributes"]['body']
-            elif c['name'] == 'documentation' and "attributes" in c:
-                found['description'] = c['attributes']['value']
+            if c['name'] == 'initial':
+                found.setdefault('initial', '')
+                if "attributes" in c:
+                    found['initial'] = c["attributes"]['body']
+            elif c['name'] == 'documentation':
+                found.setdefault('description', '')
+                if "attributes" in c:
+                    found['description'] = c['attributes']['value']
             elif c['name'] == 'properties' and 'attributes' in c:
                 if 'type' in c['attributes']:
                     found['type'] = c['attributes']['type']
@@ -227,6 +236,7 @@ class ModelBuilder:
                 print(f"WARNING: parameter {c['attributes']['xmi:idref']} was not found")
                 found_param = None
                 continue
+            found_param.setdefault('description', '')
             for cc in c['children']:
                 if cc['name'] == 'properties':
                     found_param['type'] = cc['attributes']['type']
@@ -234,6 +244,16 @@ class ModelBuilder:
                     found_param['const'] = cc['attributes']['const']
                 elif cc['name'] == 'documentation' and 'attributes' in cc:
                     found_param['description'] = cc['attributes']['value']
+
+    def visit_ea_connector(self, node:dict):
+        found = self._id_map.get(node['attributes']['xmi:idref'], None)
+        if found is None:
+            return
+
+        for c in node['children']:
+            if c['name'] == 'properties':
+                found['stereotype'] = c['attributes'].get('stereotype', '')
+                found['type'] = c['attributes']['ea_type']
 
     _default_header_content = {
         'functions': list(),
@@ -250,6 +270,9 @@ class ModelBuilder:
     def post_process(self):
         self._create_headers()
         self._arrange_function_groups()
+        self._arrange_types()
+        self._arrange_variables()
+        self._arrange_macro_constants()
 
     def _create_headers(self):
         for el in self._model['elements']:
@@ -258,10 +281,21 @@ class ModelBuilder:
                     self._headers.setdefault(el['name'], deepcopy(self._default_header_content))
                     header_ref = self._headers[el['name']]
                     header_ref['file-name'] = el['name']
-                    header_ref['description'] = el['description']
+                    header_ref['description'] = self._clean_el_description(el['description'])
                     header_ref['generated'] = el['generated']
                     header_ref['component'] = self._model['component']
+                    header_ref['includes'] = []
+                    self._get_includes(el, header_ref)
 
+    def _get_includes(self, artifact, header_ref):
+        for dep in self._model['dependencies']:
+            if dep['client'] == artifact['xmi:id'] and dep.get('stereotype', 'include'):
+                supplier_el = self._id_map[dep['supplier']]
+                header_ref['includes'] += [ supplier_el['name'] ]
+
+    #
+    # Post-process operations
+    #
     def _arrange_function_groups(self):
         for el in self._model['elements']:
             if el['xmi:type'] == 'uml:Interface':
@@ -269,23 +303,166 @@ class ModelBuilder:
                     'functions-group': el['name'],
                     'functions': [ ]
                 }
+                self._headers[el['header']]['functions'] += [ functions_group ]
                 #add functions for this owner
                 for f in self._model['operations']:
                     if f['owner'] == el['xmi:id']:
                         functions_group['functions'] += [ f ]
-                    #supplement missing keys
-                    f.setdefault('in-params', [])
-                    f.setdefault('out-params', [])
-                    f.setdefault('inout-params', [])
-                    f.setdefault('return-value', { 'type': 'void', 'description': '' })
-                    self._set_func_syntax(f)
+                        #supplement missing keys
+                        f.setdefault('in-params', [])
+                        f.setdefault('out-params', [])
+                        f.setdefault('inout-params', [])
+                        f.setdefault('return-value', { 'type': 'void', 'description': '' })
+                        self._set_func_params(f)
+                        if 'stereotype' in f and f['stereotype'] == "macro":
+                            f['is-macro'] = True
+                            self._set_func_macro_syntax(f)
+                            self._set_func_macro_definition(f)
+                        else:
+                            f['is-macro'] = False
+                            self._set_func_syntax(f)
 
-                self._headers[el['header']]['functions'] += [ functions_group ]
 
     def _set_func_syntax(self, func):
         syntax = func['return-value']['type'] + ' ' + func['name'] + '('
         for p in func['parameters']:
             if p['name'] != 'return':
-                syntax += p['type'] + ' ' + p['name'] + ', '
+                if p['name'] == "...":
+                    syntax += p['name'] + ', '
+                else:
+                    type = p['type']
+                    if p['const'] == 'true' and not type.startswith('const'):
+                        type = 'const ' + type
+                    syntax += type + ' ' + p['name'] + ', '
         syntax = syntax[:-2] + ')'
         func['syntax'] = syntax
+
+    def _set_func_params(self, func):
+        for p in func['parameters']:
+            if p['name'] != 'return':
+                key = p['direction'] + '-params'
+                func[key] += [
+                    {
+                        'name': p['name'],
+                        'description': p['description']
+                    }
+                ]
+
+    def _set_func_macro_syntax(self, func):
+        syntax = func['name'] + '('
+        for p in func['parameters']:
+            if p['name'] != 'return':
+                syntax += p['name'] + ', '
+        syntax = syntax[:-2] + ')'
+        func['syntax'] = syntax
+
+    def _set_func_macro_definition(self, func):
+        code = ''
+        add_to_code = False
+        leading_spaces = None
+        for line in func['description'].split('\n'):
+            if add_to_code and line.strip():
+                if leading_spaces is None:
+                    leading_spaces = len(line) - len(line.lstrip(' '))
+                code += line[leading_spaces:] + '\n'
+            if 'Code:' in line:
+                add_to_code = True
+        func['definition'] = code.replace('&amp;&amp;', '&&').replace('&lt;', '<').replace('&gt;', '>')
+
+    #
+    # Post-process types
+    #
+    def _arrange_types(self):
+        for el in self._model['elements']:
+            if el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'struct':
+                type = {
+                    'description': self._clean_el_description(el['description']),
+                    'kind': 'Structure',
+                    'type-name': el['name'],
+                    'elements': []
+                }
+                self._add_struct_fields(el, type)
+                self._headers[el['header']]['types'] += [ type ]
+            elif el['xmi:type'] == 'uml:Enumeration' and not 'stereotype' in el:
+                type = {
+                    'description': self._clean_el_description(el['description']),
+                    'kind': 'Enumeration',
+                    'type-name': el['name'],
+                    'constants': []
+                }
+                self._add_enums(el, type)
+                self._headers[el['header']]['types'] += [ type ]
+            elif el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'typedef':
+                found_base_type_el = self._id_map[el['base:id']]
+                type = {
+                    'description': self._clean_el_description(el['description']),
+                    'kind': 'Typedef',
+                    'type-name': el['name'],
+                    'base-type': found_base_type_el['name']
+                }
+                self._headers[el['header']]['types'] += [ type ]
+
+    def _clean_el_description(self, descr):
+        cleaned = ''
+        for line in descr.split('\n'):
+            if 'Declared in:' not in line and 'Generated:' not in line:
+                cleaned += line + '\n'
+        return cleaned
+
+    def _add_struct_fields(self, el, type):
+        for a in self._model['attributes']:
+            if a['owner'] == el['xmi:id']:
+                struct_el = {
+                    'description': a['description'],
+                    'type': a['type'],
+                    'field': a['name']
+                }
+                type['elements'].append(struct_el)
+
+    def _add_enums(self, el, type):
+        for l in self._model['literals']:
+            if l['owner'] == el['xmi:id']:
+                constant = {
+                    'name': l['name'],
+                    'description': l['description'],
+                    'value': l["initial"]
+                }
+                type['constants'].append(constant)
+
+    #
+    # Post-process variables
+    #
+    def _arrange_variables(self):
+        for el in self._model['elements']:
+            if el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'variables':
+                variables_group = {
+                    'variables-group': el['name'],
+                    'variables':  [ ]
+                }
+                self._headers[el['header']]['variables'] += [ variables_group ]
+                #add attributes for this owner
+                for a in self._model['attributes']:
+                    if a['owner'] == el['xmi:id']:
+                        variables_group['variables'] += [ a ]
+                        # description is already set
+                        a['syntax'] = a['type'] + ' ' + a['name']
+
+    #
+    # Post-process macro constants
+    #
+    def _arrange_macro_constants(self):
+        for el in self._model['elements']:
+            if el['xmi:type'] == 'uml:Enumeration' and el.get('stereotype', '') == 'macros':
+                macro_constants_group = {
+                    'constants-group': el['name'],
+                    'constants': []
+                }
+                self._headers[el['header']]['macro-constants'] += [ macro_constants_group ]
+                #add constants for this owner
+                for c in self._model['literals']:
+                    if c['owner'] == el['xmi:id']:
+                        macro_constants_group['constants'] += [ c ]
+                        # name and description are already set
+                        c['value'] = c['initial']
+
+
