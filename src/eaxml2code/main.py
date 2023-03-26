@@ -31,6 +31,8 @@ try:
     from .__init__ import __version__
 except:
     from xmlprocessor import XmlProcessor
+    from modelbuilder import ModelBuilder
+    from __init__ import __version__
 
 
 def main():
@@ -54,7 +56,11 @@ def main():
 
     if args['verbose']:
         print("Analyzing code template...")
-    header_templ = Template(templ_str)
+    try:
+        header_templ = Template(templ_str)
+    except:
+        print(exceptions.text_error_template().render())
+        raise
 
     with open(args['input'], 'r') as f:
         text = f.read()
@@ -79,13 +85,14 @@ def main():
 
         builder = ModelBuilder(args['verbose'])
         builder.walk_raw_model_subtree(root)
-        builder.post_process()
 
         if args['verbose']:
             print("Dumping model dict...")
             js = json.dumps(builder._model, indent=3)
             with open(args['odir'] + os.sep + 'modeldump.json', 'w') as fdump:
                 fdump.write(js)
+
+        builder.post_process()
 
         for header in builder._headers:
             try:

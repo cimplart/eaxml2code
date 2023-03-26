@@ -5,11 +5,6 @@
 %>                                              \
 ###
 <%!                                             \
-    def get_brief(descr):                       \
-        return descr[:descr.index("\n")] if descr else ''        \
-%>                                              \
-###
-<%!                                             \
     def make_include_guard(file):               \
         return file.upper().replace('.', '_')   \
 %>                                              \
@@ -19,15 +14,24 @@
         return content['component']             \
 %>                                                                      \
 ###
-<%!                                                                     \
-    def get_enum_initializer(item):                                     \
-        return ' = ' + item['value'] if 'value' in item else ''         \
-%>                                                                      \
+<%!                                                                                 \
+    def get_enum_initializer(item):                                                 \
+        return bool(item.get('value', '').strip()) * ' = ' + item.get('value', '')  \
+%>                                                                                  \
 ###
 ### render_macro_constant()
 ###
 <%def name="render_macro_constant(const_item)" filter="trim">           \
+% if 'definition' in const_item:
+/**
+%    for line in const_item['description'].split('\n'):
+ * ${line}
+%    endfor
+ */
+${const_item['definition']}
+% else:
 #define ${const_item['name']} (${const_item['value']})    ///< ${const_item['description']}
+% endif
 </%def>                                                                 \
 ###
 ### render_macro_function()
@@ -35,7 +39,12 @@
 <%def name="render_macro_function(func_item)" filter="trim" >
 
 /**
- * @brief ${get_brief(func_item['description'])}
+ * @brief ${func_item['brief']}
+ *
+% for line in func_item['description'].split('\n'):
+ * ${line}
+% endfor
+ *
 % for ipar in func_item['in-params']:
  * @param[in] ${ipar['name']} - ${ipar['description']}
 % endfor
@@ -55,11 +64,15 @@ ${func_item['definition']}
 <%def name="render_type(type_item)">            \
 
 /**
- * ${get_brief(type_item['description'])}
+ * ${type_item['brief']}
  * @ingroup ${content['component']}
+ *
+% for line in type_item['description'].split('\n'):
+ * ${line}
+% endfor
  */
 % if type_item['kind'] == 'Typedef':
-typedef ${type_item['base-type']} ${type_item['type-name']};
+${type_item['declaration']};
 % elif type_item['kind'] == 'Structure':
 typedef struct ${type_item['type-name']} {
 % for sel in type_item['elements']:
@@ -85,9 +98,12 @@ ${var_item['syntax']};      ///< ${var_item['description']}
 <%def name="render_function(func_item)">        \
 
 /**
- * @brief ${get_brief(func_item['description'])}
+ * @brief ${func_item['brief']}
  * @ingroup ${content['component']}
  *
+% for line in func_item['description'].split('\n'):
+ * ${line}
+% endfor
 % for ipar in func_item['in-params']:
  * @param[in] ${ipar['name']} - ${ipar['description']}
 % endfor
@@ -136,14 +152,6 @@ ${func_item['syntax']};
 % endfor
 
 % for cg in content['macro-constants']:
-/** ${cg['constants-group']} */
-%    for c in cg['constants']:
-${render_macro_constant(c)}
-%    endfor
-
-% endfor
-
-% for cg in content['macro-constants']:
 /**
  *  ${cg['constants-group']}
  *  @addtogroup ${get_group(content, cg)} @{
@@ -179,8 +187,10 @@ ${render_variable(v)}
 %     for f in fg['functions']:
 %        if f['is-macro']:
 ${render_macro_function(f)}
+
 %        else:
 ${render_function(f)}
+
 %        endif
 %    endfor
 /** @} */

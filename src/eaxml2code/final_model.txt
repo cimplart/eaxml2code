@@ -19,6 +19,7 @@ functions_group = {
 }
 
 function = dict {
+    'brief': str
     'description': str
     'syntax': str
     'in-params': list[ parameter ]
@@ -41,11 +42,12 @@ parameter = dict {
 }
 
 type = dict {
+    'brief': str
     'description': str
     'kind': str
     if 'kind' == 'Typedef':
         'type-name': str
-        'base-type': str
+        'declaration': str
     elif 'kind' == "Structure':
         'type-name': str
         'elements': list[ struct-element ]
@@ -84,6 +86,8 @@ macro_constants_group = dict {
 
 macro_constant = dict {
     'name': str
-    'value': str
     'description': str
+    'value': str
+or
+    'definition': str
 }

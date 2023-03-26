@@ -16,6 +16,7 @@
 # limitations under the License.
 
 from copy import deepcopy
+import sys
 
 class ModelBuilder:
 
@@ -28,17 +29,13 @@ class ModelBuilder:
         self._model['operations'] = []
         self._model['literals'] = []
         self._model['component'] = ''
-        self._cur_element_id = None
 
         self._headers = {}  #main entry point to final model
 
     @property
     def current_element(self):
         if self._model['elements']:
-            if self._cur_element_id is not None:
-                return self._id_map[self._cur_element_id]
-            else:
-                return self._model['elements'][-1]
+            return self._model['elements'][-1]
         else:
             return None
 
@@ -123,8 +120,10 @@ class ModelBuilder:
                 'xmi:id': c['attributes']['xmi:id'],
                 'direction': c['attributes']['direction']
             }
-            model_el['parameters'] += [ param_el ]
-            self._id_map[param_el['xmi:id']] = model_el['parameters'][-1]
+            # 'return' is not really a parameter, just ignore it
+            if param_el['name'] != 'return':
+                model_el['parameters'] += [ param_el ]
+                self._id_map[param_el['xmi:id']] = model_el['parameters'][-1]
 
         self._model['operations'] += [ model_el ]
         self._id_map[model_el['xmi:id']] = self._model['operations'][-1]
@@ -143,7 +142,6 @@ class ModelBuilder:
             print('Ignore node ' + xmi_type)
             return
 
-        self._cur_element_id = node['attributes']['xmi:idref']
         try:
             found = self._id_map[node['attributes']['xmi:idref']]
         except KeyError as e:
@@ -208,7 +206,7 @@ class ModelBuilder:
                     found['return-value']['type'] = c['attributes']['type']
                 else:
                     found['return-value']['type'] = 'void'
-            elif c['name'] == 'documentation':
+            elif c['name'] == 'documentation' and 'attributes' in c:
                 found['description'] = c['attributes']['value']
                 if found['return-value']['type'] != 'void':
                     found['return-value']['description'] = self._extract_return_value_description(found['description'])
@@ -239,7 +237,7 @@ class ModelBuilder:
             found_param.setdefault('description', '')
             for cc in c['children']:
                 if cc['name'] == 'properties':
-                    found_param['type'] = cc['attributes']['type']
+                    found_param['type'] = cc['attributes'].get('type', '')
                     found_param['position'] = cc['attributes']['pos']
                     found_param['const'] = cc['attributes']['const']
                 elif cc['name'] == 'documentation' and 'attributes' in cc:
@@ -277,12 +275,16 @@ class ModelBuilder:
     def _create_headers(self):
         for el in self._model['elements']:
             if el['xmi:type'] == 'uml:Artifact':
-                if el['stereotype'] == 'header':
+                if not 'stereotype' in el:
+                    print(f"WARNING: artifact {el['name']} has no stereotype, ignoring")
+                elif el['stereotype'] == 'header':
                     self._headers.setdefault(el['name'], deepcopy(self._default_header_content))
                     header_ref = self._headers[el['name']]
                     header_ref['file-name'] = el['name']
-                    header_ref['description'] = self._clean_el_description(el['description'])
-                    header_ref['generated'] = el['generated']
+                    if not 'description' in el:
+                        print(f"WARNING: artifact {el['name']} is missing description")
+                    header_ref['description'] = self._clean_el_description(el.get('description', ''))
+                    header_ref['generated'] = el.get('generated', False)
                     header_ref['component'] = self._model['component']
                     header_ref['includes'] = []
                     self._get_includes(el, header_ref)
@@ -292,6 +294,19 @@ class ModelBuilder:
             if dep['client'] == artifact['xmi:id'] and dep.get('stereotype', 'include'):
                 supplier_el = self._id_map[dep['supplier']]
                 header_ref['includes'] += [ supplier_el['name'] ]
+
+    def _get_brief(self, descr: str):
+        p_dot = descr.find('.')
+        p_newl = descr.find('\n')
+        if p_dot < 0:
+            p_dot = sys.maxsize
+        if p_newl < 0:
+            p_newl = sys.maxsize
+        cut_point = min([ p_dot, p_newl ])
+        if cut_point < sys.maxsize:
+            return descr[:cut_point]
+        else:
+            return "GO FIX THIS DESCRIPTION"
 
     #
     # Post-process operations
@@ -313,6 +328,9 @@ class ModelBuilder:
                         f.setdefault('out-params', [])
                         f.setdefault('inout-params', [])
                         f.setdefault('return-value', { 'type': 'void', 'description': '' })
+                        f['description'] = self._clean_el_description(f['description'])
+                        f['brief'] = self._get_brief(f['description'])
+
                         self._set_func_params(f)
                         if 'stereotype' in f and f['stereotype'] == "macro":
                             f['is-macro'] = True
@@ -322,52 +340,58 @@ class ModelBuilder:
                             f['is-macro'] = False
                             self._set_func_syntax(f)
 
-
     def _set_func_syntax(self, func):
         syntax = func['return-value']['type'] + ' ' + func['name'] + '('
         for p in func['parameters']:
-            if p['name'] != 'return':
-                if p['name'] == "...":
-                    syntax += p['name'] + ', '
-                else:
-                    type = p['type']
-                    if p['const'] == 'true' and not type.startswith('const'):
-                        type = 'const ' + type
-                    syntax += type + ' ' + p['name'] + ', '
-        syntax = syntax[:-2] + ')'
+            if p['name'] == "...":
+                syntax += p['name'] + ', '
+            else:
+                type = p['type']
+                if p['const'] == 'true' and not type.startswith('const'):
+                    type = 'const ' + type
+                syntax += type + ' ' + p['name'] + ', '
+        if syntax.endswith(', '):
+            syntax = syntax[:-2]
+        syntax += ')'
         func['syntax'] = syntax
 
     def _set_func_params(self, func):
         for p in func['parameters']:
-            if p['name'] != 'return':
-                key = p['direction'] + '-params'
-                func[key] += [
-                    {
-                        'name': p['name'],
-                        'description': p['description']
-                    }
-                ]
+            key = p['direction'] + '-params'
+            func[key] += [
+                {
+                    'name': p['name'],
+                    'description': p['description']
+                }
+            ]
 
     def _set_func_macro_syntax(self, func):
         syntax = func['name'] + '('
         for p in func['parameters']:
-            if p['name'] != 'return':
-                syntax += p['name'] + ', '
-        syntax = syntax[:-2] + ')'
+            syntax += p['name'] + ', '
+        if syntax.endswith(', '):
+            syntax = syntax[:-2]
+        syntax += ')'
         func['syntax'] = syntax
 
     def _set_func_macro_definition(self, func):
         code = ''
+        descr = ''
         add_to_code = False
         leading_spaces = None
         for line in func['description'].split('\n'):
-            if add_to_code and line.strip():
-                if leading_spaces is None:
-                    leading_spaces = len(line) - len(line.lstrip(' '))
-                code += line[leading_spaces:] + '\n'
-            if 'Code:' in line:
+            if add_to_code:
+                if line.strip():
+                    if leading_spaces is None:
+                        leading_spaces = len(line) - len(line.lstrip(' '))
+                    code += line[leading_spaces:] + '\n'
+            elif 'Definition:' in line:
                 add_to_code = True
+            else:
+                descr += line.strip() + '\n'
         func['definition'] = code.replace('&amp;&amp;', '&&').replace('&lt;', '<').replace('&gt;', '>')
+        # Remove Definition: from description.
+        func['description'] = descr.strip()
 
     #
     # Post-process types
@@ -376,6 +400,7 @@ class ModelBuilder:
         for el in self._model['elements']:
             if el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'struct':
                 type = {
+                    'brief': self._get_brief(el['description']),
                     'description': self._clean_el_description(el['description']),
                     'kind': 'Structure',
                     'type-name': el['name'],
@@ -385,6 +410,7 @@ class ModelBuilder:
                 self._headers[el['header']]['types'] += [ type ]
             elif el['xmi:type'] == 'uml:Enumeration' and not 'stereotype' in el:
                 type = {
+                    'brief': self._get_brief(el['description']),
                     'description': self._clean_el_description(el['description']),
                     'kind': 'Enumeration',
                     'type-name': el['name'],
@@ -393,21 +419,62 @@ class ModelBuilder:
                 self._add_enums(el, type)
                 self._headers[el['header']]['types'] += [ type ]
             elif el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'typedef':
-                found_base_type_el = self._id_map[el['base:id']]
+                #Generalization has priority over containment.
+                if 'base:id' in el:
+                    found_base_type_el = self._id_map.get(el['base:id'], None)
+                    declaration = self._make_typedef_from_base(el, found_base_type_el)
+                else:
+                    found_feature = self._find_typedef_feature(el['xmi:id'])
+                    if found_feature != None:
+                        declaration = self._make_typedef_from_feature(el, found_feature)
+                    else:
+                        print(f"WARNING: insufficient information for typedef declaration of {el['name']}, ignoring")
+                        return
                 type = {
+                    'brief': self._get_brief(el['description']),
                     'description': self._clean_el_description(el['description']),
                     'kind': 'Typedef',
                     'type-name': el['name'],
-                    'base-type': found_base_type_el['name']
+                    'declaration': declaration
                 }
                 self._headers[el['header']]['types'] += [ type ]
+
+    def _find_typedef_feature(self, owner):
+        for attr in self._model['attributes']:
+            if attr['owner'] == owner:
+                return attr
+        for op in self._model['operations']:
+            if op['owner'] == owner:
+                return op
+        return None
+
+    def _make_typedef_from_feature(self, el, feat):
+        if 'parameters' in feat and 'return-value' in feat:
+            if not feat['name'].startswith('(*') or not feat['name'].endswith(')'):
+                print(f"WARNING: invalid declaration information for typedef f{el['name']} - expecting pointer to function")
+                return ''
+            decl = 'typedef ' + feat['return-value']['type'] + ' ' + feat['name'] + '('
+            if len(feat['parameters']):
+                for p in feat['parameters']:
+                    decl += p['type'] + ', '
+                decl = decl[:-2]
+            decl += ')'
+        else:
+            if not 'type' in feat or not feat['type']:
+                print("WARNING: missing or invalid type for typedef declaration")
+            decl = 'typedef ' + feat['type'] + ' ' + el['name']
+        return decl
+
+    def _make_typedef_from_base(self, el, base):
+        return 'typedef ' + base['name'] + ' ' + el['name']
 
     def _clean_el_description(self, descr):
         cleaned = ''
         for line in descr.split('\n'):
-            if 'Declared in:' not in line and 'Generated:' not in line:
-                cleaned += line + '\n'
-        return cleaned
+            l = line.replace('<b>', '').replace('</b>', '')
+            if 'Declared in:' not in l and 'Generated:' not in l:
+                cleaned += l + '\n'
+        return cleaned.strip()
 
     def _add_struct_fields(self, el, type):
         for a in self._model['attributes']:
@@ -463,6 +530,9 @@ class ModelBuilder:
                     if c['owner'] == el['xmi:id']:
                         macro_constants_group['constants'] += [ c ]
                         # name and description are already set
-                        c['value'] = c['initial']
+                        if not c['initial'] and 'Definition:' in c['description']:
+                            self._set_func_macro_definition(c)
+                        else:
+                            c['value'] = c['initial']
 
 
