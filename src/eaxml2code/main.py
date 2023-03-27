@@ -42,7 +42,8 @@ def main():
         version = __version__
     print("eaxml2code version ", version)
     parser = ArgumentParser()
-    parser.add_argument("-i", "--input", dest="input", help="xml input file", metavar="INPUT-FILE", required=True)
+    parser.add_argument("-i", "--input", dest="input", help="xml input file", metavar="INPUT-FILE", required=True, nargs='+')
+    parser.add_argument("-e", "--encoding", dest="encoding", help="XML encoding", required=False, default="windows-1252")
     parser.add_argument("-t", "--template", dest="templ", help="header template", metavar="TEMPLATE", required=True)
     parser.add_argument("-o", "--odir", dest="odir", help="output folder", metavar="OUTPUT-DIR", required=True)
     parser.add_argument("-d", "--dump", dest="dump", help="dump content dictionary", default=False, required=False, action='store_true')
@@ -62,29 +63,31 @@ def main():
         print(exceptions.text_error_template().render())
         raise
 
-    with open(args['input'], 'r') as f:
-        text = f.read()
-        if args['verbose']:
-            print("Parsing input file...")
-        handler = XmlProcessor()
-        xml.sax.parse(args['input'], handler)
-        root = handler.current_element
+    builder = ModelBuilder(args['verbose'])
 
-        if not os.path.exists(args['odir']):
+    for input in args['input']:
+        with open(input, 'r', encoding=args['encoding']) as f:
+            text = f.read()
             if args['verbose']:
-                print("Creating output directory...")
-            os.mkdir(args['odir'])
-        elif not os.path.isdir(args['odir']):
-            print("ERROR: ", args['odir'], " is not a directory")
+                print("Parsing input file...")
+            handler = XmlProcessor()
+            xml.sax.parse(input, handler)
+            root = handler.current_element
 
-        if args['verbose']:
-            print("Dumping raw model dict...")
-            js = json.dumps(root, indent=3)
-            with open(args['odir']+os.sep+'rawmodeldump.json', 'w') as fdump:
-                fdump.write(js)
+            if not os.path.exists(args['odir']):
+                if args['verbose']:
+                    print("Creating output directory...")
+                os.mkdir(args['odir'])
+            elif not os.path.isdir(args['odir']):
+                print("ERROR: ", args['odir'], " is not a directory")
 
-        builder = ModelBuilder(args['verbose'])
-        builder.walk_raw_model_subtree(root)
+            if args['verbose']:
+                print("Dumping raw model dict...")
+                js = json.dumps(root, indent=3)
+                with open(args['odir'] + os.sep + os.path.basename(input) + '_rawmodeldump.json', 'w') as fdump:
+                    fdump.write(js)
+
+            builder.walk_raw_model_subtree(root)
 
         if args['verbose']:
             print("Dumping model dict...")

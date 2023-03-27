@@ -292,8 +292,11 @@ class ModelBuilder:
     def _get_includes(self, artifact, header_ref):
         for dep in self._model['dependencies']:
             if dep['client'] == artifact['xmi:id'] and dep.get('stereotype', 'include'):
-                supplier_el = self._id_map[dep['supplier']]
-                header_ref['includes'] += [ supplier_el['name'] ]
+                if dep['supplier'] in self._id_map:
+                    supplier_el = self._id_map[dep['supplier']]
+                    header_ref['includes'] += [ supplier_el['name'] ]
+                else:
+                    print(f"WARNING: artifact {dep['supplier']} not found in the model, ignoring")
 
     def _get_brief(self, descr: str):
         p_dot = descr.find('.')
