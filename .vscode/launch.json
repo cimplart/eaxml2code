@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: program",
+            "type": "python",
+            "request": "launch",
+            "module": "eaxml2code",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src${env:PYTHONPATH}"
+            },
+            "justMyCode": true,
+            "args": [
+                "--input",
+                "tests/CanSM.xml",
+                "tests/CanSM-DD.xml",
+                "--template",
+                "tests/template.h",
+                "--odir",
+                "tests/output",
+                "--verbose",
+//                "--dump"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

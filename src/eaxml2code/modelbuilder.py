@@ -202,21 +202,26 @@ class ModelBuilder:
             elif c['name'] == 'type':
                 found['static'] = c['attributes']["static"]
                 found.setdefault('return-value', {})
+                found['return-value'].setdefault('description', '')
                 if "type" in c['attributes']:
                     found['return-value']['type'] = c['attributes']['type']
                 else:
                     found['return-value']['type'] = 'void'
-            elif c['name'] == 'documentation' and 'attributes' in c:
-                found['description'] = c['attributes']['value']
-                if found['return-value']['type'] != 'void':
-                    found['return-value']['description'] = self._extract_return_value_description(found['description'])
+            elif c['name'] == 'documentation':
+                if 'attributes' in c:
+                    found['description'] = c['attributes']['value']
+                    if found['return-value']['type'] != 'void':
+                        found['return-value']['description'] = self._extract_return_value_description(found['name'], found['description'])
+                elif found.get('return-value', {}).get('type', 'void') != 'void':
+                    print(f"WARNING: operation {found['name']} returning non-void is missing return value description")
             elif c['name'] == 'parameters':
                 self._collect_parameters(c, found['parameters'])
 
-    def _extract_return_value_description(self, description):
+    def _extract_return_value_description(self, op_name, description):
         for line in description.split('\n'):
             if 'Return value:' in line:
                 return line.replace('Return value:', '').strip()
+        print(f"WARNING: return value of {op_name} is missing description")
         return ''
 
     def _collect_parameters(self, node:dict, params: list):
@@ -331,7 +336,7 @@ class ModelBuilder:
                         f.setdefault('out-params', [])
                         f.setdefault('inout-params', [])
                         f.setdefault('return-value', { 'type': 'void', 'description': '' })
-                        f['description'] = self._clean_el_description(f['description'])
+                        f['description'] = self._clean_el_description(f.get('description', ''))
                         f['brief'] = self._get_brief(f['description'])
 
                         self._set_func_params(f)

@@ -1,0 +1,1040 @@
+<?xml  version='1.0' encoding='windows-1252' ?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:thecustomprofile="http://www.sparxsystems.com/profiles/thecustomprofile/1.0" xmlns:StandardProfileL2="http://www.omg.org/spec/UML/20110701/StandardProfileL2.xmi">
+	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5" exporterID="1625"/>
+	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
+		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" name="CanSM-DD" visibility="public">
+			<packagedElement xmi:type="uml:Interface" xmi:id="EAID_3B0ED937_4FFF_4be8_B7AE_2A81E999A170" name="CanSM Internal Macros" visibility="public" isAbstract="true">
+				<ownedOperation xmi:id="EAID_45597E0B_C31C_4228_AE67_032BB95A8B53" name="CANSM_DET_REPORTERROR" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:id="EAID_B94A205B_5AC7_4e55_9DA4_A686C051B591" name="serviceId" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_393F243C_9F3F_427f_912F_DF371A835ED8" name="errorId" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_RT000000_C31C_4228_AE67_032BB95A8B53" name="return" direction="return" type="EAJava_void"/>
+				</ownedOperation>
+				<ownedOperation xmi:id="EAID_87CF1CDC_1671_42c0_A13F_26ED2570F67C" name="CANSM_VALIDATE" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:id="EAID_E7FDCA43_AD7A_4bfe_B1F0_E870C3065D60" name="expression" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_A67CE7C8_AD08_417b_A7C5_287A86A35442" name="serviceId" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_36F38F58_3032_497c_B577_48B10066EE79" name="errorId" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_C0F53072_4A8C_4dbb_9DDF_4F368FE7302B" name="..." direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_RT000000_1671_42c0_A13F_26ED2570F67C" name="return" direction="return" type="EAJava_void"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Interface" xmi:id="EAID_A14A23C6_FC4C_4cbb_B43C_8E6410CB801B" name="CanSM Internal Functions" visibility="public" isAbstract="true">
+				<ownedOperation xmi:id="EAID_2F6605C5_9D34_4289_8720_23910296C55A" name="CanSM_Internal_RequestComMode" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:id="EAID_545E742F_95D4_4312_BC04_DADC241F63E5" name="NetworkHandle" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_AAB491D2_3E27_41c5_90C7_FB00B43E986A" name="ComM_Mode" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true" type="EAC_int"/>
+					<ownedParameter xmi:id="EAID_BD949FEF_3664_49d0_875F_D53CDC1A21CF" name="Init" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_RT000000_9D34_4289_8720_23910296C55A" name="return" direction="return" type="EAC_Std_ReturnType"/>
+				</ownedOperation>
+				<ownedOperation xmi:id="EAID_65AF9D5B_A36E_404b_8FF2_FF62040D7F9A" name="CanSM_Internal_RequestCanIfMode" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:id="EAID_9CF9B223_3958_4682_A5A1_7A5670A5DE52" name="NetworkHandle" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_39BF3899_6BF7_4f7c_B350_C599D93F404C" name="ComM_Mode" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_RT000000_A36E_404b_8FF2_FF62040D7F9A" name="return" direction="return" type="EAC_Std_ReturnType"/>
+				</ownedOperation>
+				<ownedOperation xmi:id="EAID_D4F3D277_B8DA_424f_9DA7_0A2CA3504706" name="CanSM_Internal_RequestComGroupMode" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:id="EAID_9E8654D6_A6DC_4363_AA59_70EDEE07F8E7" name="NetworkHandle" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_ECF8918C_9F5F_4476_A0AF_4EFC639F391F" name="ComM_Mode" direction="in" isStream="false" isException="false" isOrdered="false" isUnique="true"/>
+					<ownedParameter xmi:id="EAID_RT000000_B8DA_424f_9DA7_0A2CA3504706" name="return" direction="return" type="EAC_Std_ReturnType"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Package" xmi:id="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" name="Source files" visibility="public">
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003" name="CanIf.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_863CE799_104A_4737_A096_5E9A1E743AE1" name="CanNm_Cbk.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" name="CanSM.c" visibility="public"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_1368B9C4_F3C5_487c_8D77_100A5F09071B" visibility="public" supplier="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003" client="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_59ABB6D5_9AD5_4075_937F_2B3C450AEA48" visibility="public" supplier="EAID_863CE799_104A_4737_A096_5E9A1E743AE1" client="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_678B412D_676A_4fca_A2E1_F5A84E9FE9D5" visibility="public" supplier="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8" client="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_80F397C5_47DB_4fe9_AB9B_D9347493BDA1" visibility="public" supplier="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891" client="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_BA50C547_4653_437c_B2DA_2499E586FDF6" visibility="public" supplier="EAID_6D41352D_082E_460a_9536_3A418A5720FF" client="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_E93B224F_697B_46bc_A640_219F1DC1EC36" visibility="public" supplier="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50" client="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8" name="CanSM.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_6D41352D_082E_460a_9536_3A418A5720FF" name="CanSM_Internal.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_C4996DED_E658_4113_B982_A810CCBB7A16" visibility="public" supplier="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8" client="EAID_6D41352D_082E_460a_9536_3A418A5720FF"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50" name="ComM_BusSM.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891" name="Det.h" visibility="public"/>
+			</packagedElement>
+		</packagedElement>
+		<thecustomprofile:macro base_Operation="EAID_45597E0B_C31C_4228_AE67_032BB95A8B53"/>
+		<thecustomprofile:macro base_Operation="EAID_87CF1CDC_1671_42c0_A13F_26ED2570F67C"/>
+		<thecustomprofile:header base_Artifact="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003"/>
+		<thecustomprofile:header base_Artifact="EAID_863CE799_104A_4737_A096_5E9A1E743AE1"/>
+		<StandardProfileL2:Source base_Artifact="EAID_293DE343_3861_43ac_B48B_857C96B22ED7"/>
+		<thecustomprofile:include base_Dependency="EAID_1368B9C4_F3C5_487c_8D77_100A5F09071B"/>
+		<thecustomprofile:include base_Dependency="EAID_59ABB6D5_9AD5_4075_937F_2B3C450AEA48"/>
+		<thecustomprofile:include base_Dependency="EAID_678B412D_676A_4fca_A2E1_F5A84E9FE9D5"/>
+		<thecustomprofile:include base_Dependency="EAID_80F397C5_47DB_4fe9_AB9B_D9347493BDA1"/>
+		<thecustomprofile:include base_Dependency="EAID_BA50C547_4653_437c_B2DA_2499E586FDF6"/>
+		<thecustomprofile:include base_Dependency="EAID_E93B224F_697B_46bc_A640_219F1DC1EC36"/>
+		<thecustomprofile:BSW_UML_fixccey__header base_Artifact="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8" __EAStereoName="BSW_UML_fixccey::header"/>
+		<thecustomprofile:header base_Artifact="EAID_6D41352D_082E_460a_9536_3A418A5720FF"/>
+		<thecustomprofile:include base_Dependency="EAID_C4996DED_E658_4113_B982_A810CCBB7A16"/>
+		<thecustomprofile:header base_Artifact="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50"/>
+		<thecustomprofile:header base_Artifact="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891"/>
+	</uml:Model>
+	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+		<elements>
+			<element xmi:idref="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" xmi:type="uml:Package" name="CanSM-DD" scope="public">
+				<model package2="EAID_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" package="EAPK_B4E79AAC_39DB_487c_AC57_E3E8B03E37C8" tpos="0" ea_localid="17" ea_eleType="package"/>
+				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:09:22" modified="2023-03-27 20:09:22" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Tests"/>
+				<packageproperties version="1.0"/>
+				<paths/>
+				<times created="2023-03-27 20:09:22" modified="2023-03-27 20:09:22"/>
+				<flags iscontrolled="0" isprotected="0" usedtd="0" logxml="0"/>
+			</element>
+			<element xmi:idref="EAID_3B0ED937_4FFF_4be8_B7AE_2A81E999A170" xmi:type="uml:Interface" name="CanSM Internal Macros" scope="public">
+				<model package="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" tpos="1" ea_localid="125" ea_eleType="element"/>
+				<properties documentation="Declared in: CanSM_Internal.h&#xA;" isSpecification="false" sType="Interface" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="true"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:23:31" modified="2023-03-27 20:26:23" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="CanSM-DD"/>
+				<operations>
+					<operation xmi:idref="EAID_45597E0B_C31C_4228_AE67_032BB95A8B53" name="CANSM_DET_REPORTERROR" scope="Public">
+						<properties position="0"/>
+						<stereotype stereotype="macro"/>
+						<model ea_guid="{45597E0B-C31C-4228-AE67-032BB95A8B53}" ea_localid="91"/>
+						<type type="void" const="false" static="false" stereotype="macro" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation value="Macro to report DET errors.&#xA;&#xA;Definition:&#xA;&#xA;#if (CANSM_DEV_ERROR_DETECT == STD_ON)&#xA;#define CANSM_DET_REPORTERROR(serviceId, errorId)&#x9;&#x9;&#x9;\&#xA;&#x9;Det_ReportError(MODULE_ID_CANSM, 0, serviceId, errorId)&#xA;#else&#xA;#define CANSM_DET_REPORTERROR(...)&#x9;&#xA;#endif&#xA;"/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_C31C_4228_AE67_032BB95A8B53" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-C31C-4228-AE67-032BB95A8B53}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_B94A205B_5AC7_4e55_9DA4_A686C051B591" visibility="public">
+								<properties pos="0" const="false" ea_guid="{B94A205B-5AC7-4e55-9DA4-A686C051B591}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_393F243C_9F3F_427f_912F_DF371A835ED8" visibility="public">
+								<properties pos="1" const="false" ea_guid="{393F243C-9F3F-427f-912F-DF371A835ED8}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs value="$XREFPROP=$XID={0A696DAF-6D79-4149-8C51-AA8A5612BA37}$XID;$NAM=Stereotypes$NAM;$TYP=operation property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=macro;GUID={2C3BEBF7-707A-4d4c-8EA3-BD1CB871D7FA};@ENDSTEREO;$DES;$CLT={45597E0B-C31C-4228-AE67-032BB95A8B53}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+					</operation>
+					<operation xmi:idref="EAID_87CF1CDC_1671_42c0_A13F_26ED2570F67C" name="CANSM_VALIDATE" scope="Public">
+						<properties position="1"/>
+						<stereotype stereotype="macro"/>
+						<model ea_guid="{87CF1CDC-1671-42c0-A13F-26ED2570F67C}" ea_localid="92"/>
+						<type type="void" const="false" static="false" stereotype="macro" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation value="Validate a boolean expresion and report error if it is FALSE.&#xA;&#xA;Return type: __VA_ARGS__&#xA;&#xA;Definition:&#xA;&#xA;#if (CANSM_DEV_ERROR_DETECT == STD_ON)&#xA;#define CANSM_VALIDATE(expression, serviceId, errorId, ...)&#x9;\&#xA;&#x9;if (!(expression)) {&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\&#xA;&#x9;&#x9;CANSM_DET_REPORTERROR(serviceId, errorId);&#x9;&#x9;&#x9;\&#xA;&#x9;&#x9;return __VA_ARGS__;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\&#xA;&#x9;}&#xA;#else&#xA;#define CANSM_VALIDATE(...)&#xA;#endif"/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_1671_42c0_A13F_26ED2570F67C" visibility="public">
+								<properties pos="0" type="void" const="false" ea_guid="{RETURNID-1671-42c0-A13F-26ED2570F67C}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_E7FDCA43_AD7A_4bfe_B1F0_E870C3065D60" visibility="public">
+								<properties pos="0" const="false" ea_guid="{E7FDCA43-AD7A-4bfe-B1F0-E870C3065D60}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_A67CE7C8_AD08_417b_A7C5_287A86A35442" visibility="public">
+								<properties pos="1" const="false" ea_guid="{A67CE7C8-AD08-417b-A7C5-287A86A35442}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_36F38F58_3032_497c_B577_48B10066EE79" visibility="public">
+								<properties pos="2" const="false" ea_guid="{36F38F58-3032-497c-B577-48B10066EE79}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_C0F53072_4A8C_4dbb_9DDF_4F368FE7302B" visibility="public">
+								<properties pos="3" const="false" ea_guid="{C0F53072-4A8C-4dbb-9DDF-4F368FE7302B}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs value="$XREFPROP=$XID={6C53F798-D8EA-4b72-842B-E93580056DFD}$XID;$NAM=Stereotypes$NAM;$TYP=operation property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=macro;GUID={2C3BEBF7-707A-4d4c-8EA3-BD1CB871D7FA};@ENDSTEREO;$DES;$CLT={87CF1CDC-1671-42c0-A13F-26ED2570F67C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+					</operation>
+				</operations>
+			</element>
+			<element xmi:idref="EAID_A14A23C6_FC4C_4cbb_B43C_8E6410CB801B" xmi:type="uml:Interface" name="CanSM Internal Functions" scope="public">
+				<model package="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" tpos="2" ea_localid="128" ea_eleType="element"/>
+				<properties documentation="Declared in: CanSM_Internal.h" isSpecification="false" sType="Interface" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="true"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:37:02" modified="2023-03-27 20:45:22" complexity="1" status="Proposed"/>
+				<code gentype="C"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="CanSM-DD"/>
+				<operations>
+					<operation xmi:idref="EAID_2F6605C5_9D34_4289_8720_23910296C55A" name="CanSM_Internal_RequestComMode" scope="Public">
+						<properties position="0"/>
+						<stereotype/>
+						<model ea_guid="{2F6605C5-9D34-4289-8720-23910296C55A}" ea_localid="93"/>
+						<type type="Std_ReturnType" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_9D34_4289_8720_23910296C55A" visibility="public">
+								<properties pos="0" type="Std_ReturnType" const="false" ea_guid="{RETURNID-9D34-4289-8720-23910296C55A}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_545E742F_95D4_4312_BC04_DADC241F63E5" visibility="public">
+								<properties pos="0" type="NetworkHandleType" const="false" ea_guid="{545E742F-95D4-4312-BC04-DADC241F63E5}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_AAB491D2_3E27_41c5_90C7_FB00B43E986A" visibility="public">
+								<properties pos="1" type="int" const="false" ea_guid="{AAB491D2-3E27-41c5-90C7-FB00B43E986A}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_BD949FEF_3664_49d0_875F_D53CDC1A21CF" visibility="public">
+								<properties pos="2" type="boolean" const="false" ea_guid="{BD949FEF-3664-49d0-875F-D53CDC1A21CF}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_65AF9D5B_A36E_404b_8FF2_FF62040D7F9A" name="CanSM_Internal_RequestCanIfMode" scope="Public">
+						<properties position="1"/>
+						<stereotype/>
+						<model ea_guid="{65AF9D5B-A36E-404b-8FF2-FF62040D7F9A}" ea_localid="94"/>
+						<type type="Std_ReturnType" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_A36E_404b_8FF2_FF62040D7F9A" visibility="public">
+								<properties pos="0" type="Std_ReturnType" const="false" ea_guid="{RETURNID-A36E-404b-8FF2-FF62040D7F9A}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_9CF9B223_3958_4682_A5A1_7A5670A5DE52" visibility="public">
+								<properties pos="0" type="NetworkHandleType" const="false" ea_guid="{9CF9B223-3958-4682-A5A1-7A5670A5DE52}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_39BF3899_6BF7_4f7c_B350_C599D93F404C" visibility="public">
+								<properties pos="1" type="ComM_ModeType" const="false" ea_guid="{39BF3899-6BF7-4f7c-B350-C599D93F404C}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+					<operation xmi:idref="EAID_D4F3D277_B8DA_424f_9DA7_0A2CA3504706" name="CanSM_Internal_RequestComGroupMode" scope="Public">
+						<properties position="2"/>
+						<stereotype/>
+						<model ea_guid="{D4F3D277-B8DA-424f-9DA7-0A2CA3504706}" ea_localid="95"/>
+						<type type="Std_ReturnType" const="false" static="false" isAbstract="false" synchronised="0" concurrency="Sequential" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_B8DA_424f_9DA7_0A2CA3504706" visibility="public">
+								<properties pos="0" type="Std_ReturnType" const="false" ea_guid="{RETURNID-B8DA-424f-9DA7-0A2CA3504706}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_9E8654D6_A6DC_4363_AA59_70EDEE07F8E7" visibility="public">
+								<properties pos="0" type="NetworkHandleType" const="false" ea_guid="{9E8654D6-A6DC-4363-AA59-70EDEE07F8E7}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+							<parameter xmi:idref="EAID_ECF8918C_9F5F_4476_A0AF_4EFC639F391F" visibility="public">
+								<properties pos="1" type="ComM_ModeType" const="false" ea_guid="{ECF8918C-9F5F-4476-A0AF-4EFC639F391F}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+						<xrefs/>
+					</operation>
+				</operations>
+			</element>
+			<element xmi:idref="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" xmi:type="uml:Package" name="Source files" scope="public">
+				<model package2="EAID_97BA64E9_0505_44db_9532_B04DA0F4F2F0" package="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" tpos="0" ea_localid="20" ea_eleType="package"/>
+				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:48:27" modified="2023-03-27 20:48:27" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="CanSM-DD"/>
+				<packageproperties version="1.0"/>
+				<paths/>
+				<times created="2023-03-27 20:48:27" modified="2023-03-27 20:48:27"/>
+				<flags iscontrolled="0" isprotected="0" usedtd="0" logxml="0"/>
+			</element>
+			<element xmi:idref="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003" xmi:type="uml:Artifact" name="CanIf.h" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="121" ea_eleType="element"/>
+				<properties documentation="Generated: No" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:15:25" modified="2023-03-27 20:57:13" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={C52CE4A0-42AA-48c7-BFD4-8265DC7822F9}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={5E115570-5AC0-484f-B9CC-13242A169CFD};@ENDSTEREO;$DES;$CLT={96DF3486-EE6D-4d8b-B216-D83CA0785003}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_1368B9C4_F3C5_487c_8D77_100A5F09071B" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_863CE799_104A_4737_A096_5E9A1E743AE1" xmi:type="uml:Artifact" name="CanNm_Cbk.h" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="123" ea_eleType="element"/>
+				<properties documentation="Generated: No" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:18:35" modified="2023-03-27 20:57:05" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={3A2ABA35-73C2-4709-9E66-920E82BA926E}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={5E115570-5AC0-484f-B9CC-13242A169CFD};@ENDSTEREO;$DES;$CLT={863CE799-104A-4737-A096-5E9A1E743AE1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_59ABB6D5_9AD5_4075_937F_2B3C450AEA48" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_863CE799_104A_4737_A096_5E9A1E743AE1"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" xmi:type="uml:Artifact" name="CanSM.c" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="119" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="Source" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:14:11" modified="2023-03-27 20:48:34" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={70BE69BA-9F17-494c-A43F-627AA570415C}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Source;FQName=StandardProfileL2::Source;@ENDSTEREO;$DES;$CLT={293DE343-3861-43ac-B48B-857C96B22ED7}$CLT;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_1368B9C4_F3C5_487c_8D77_100A5F09071B" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003"/>
+					<Dependency xmi:id="EAID_59ABB6D5_9AD5_4075_937F_2B3C450AEA48" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_863CE799_104A_4737_A096_5E9A1E743AE1"/>
+					<Dependency xmi:id="EAID_678B412D_676A_4fca_A2E1_F5A84E9FE9D5" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8"/>
+					<Dependency xmi:id="EAID_80F397C5_47DB_4fe9_AB9B_D9347493BDA1" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891"/>
+					<Dependency xmi:id="EAID_BA50C547_4653_437c_B2DA_2499E586FDF6" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_6D41352D_082E_460a_9536_3A418A5720FF"/>
+					<Dependency xmi:id="EAID_E93B224F_697B_46bc_A640_219F1DC1EC36" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8" xmi:type="uml:Artifact" name="CanSM.h" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="127" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Markus Brenner" version="1.0" phase="1.0" created="2023-03-27 20:34:40" modified="2023-03-27 20:48:34" complexity="1" status="Proposed"/>
+				<code gentype="AUTOSAR"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={603691EA-CF95-40c5-AA9A-F7A65E626A65}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={38DA58C3-173D-46b9-A447-B18F60B60236};FQName=BSW_UML_fixccey::header;@ENDSTEREO;$DES;$CLT={2FE1C4EA-1A91-4332-AB76-16C10DB3EFA8}$CLT;$ENDXREF;$XREFPROP=$XID={0EFE7C6F-2060-4d88-B91D-080CF47B4949}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=fileName@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={2FE1C4EA-1A91-4332-AB76-16C10DB3EFA8}$CLT;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_678B412D_676A_4fca_A2E1_F5A84E9FE9D5" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8"/>
+					<Dependency xmi:id="EAID_C4996DED_E658_4113_B982_A810CCBB7A16" start="EAID_6D41352D_082E_460a_9536_3A418A5720FF" end="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_6D41352D_082E_460a_9536_3A418A5720FF" xmi:type="uml:Artifact" name="CanSM_Internal.h" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="124" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:20:32" modified="2023-03-27 20:56:45" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={1567584F-996B-4190-8600-18724B715A22}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={5E115570-5AC0-484f-B9CC-13242A169CFD};@ENDSTEREO;$DES;$CLT={6D41352D-082E-460a-9536-3A418A5720FF}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_C4996DED_E658_4113_B982_A810CCBB7A16" start="EAID_6D41352D_082E_460a_9536_3A418A5720FF" end="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8"/>
+					<Dependency xmi:id="EAID_BA50C547_4653_437c_B2DA_2499E586FDF6" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_6D41352D_082E_460a_9536_3A418A5720FF"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50" xmi:type="uml:Artifact" name="ComM_BusSM.h" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="122" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:16:52" modified="2023-03-27 20:48:35" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={FA6C84F5-1E6A-4669-8F56-EFEB8251D507}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={5E115570-5AC0-484f-B9CC-13242A169CFD};@ENDSTEREO;$DES;$CLT={C4492DDF-FA8F-4b5b-A908-0609ABE2BB50}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_E93B224F_697B_46bc_A640_219F1DC1EC36" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891" xmi:type="uml:Artifact" name="Det.h" scope="public">
+				<model package="EAPK_97BA64E9_0505_44db_9532_B04DA0F4F2F0" tpos="0" ea_localid="120" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:14:37" modified="2023-03-27 20:48:35" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={A622E221-305F-482c-8908-D083988C7260}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={5E115570-5AC0-484f-B9CC-13242A169CFD};@ENDSTEREO;$DES;$CLT={2684B425-D6AF-4d6e-A155-8CD5DF9C0891}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_80F397C5_47DB_4fe9_AB9B_D9347493BDA1" start="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" end="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891"/>
+				</links>
+			</element>
+		</elements>
+		<connectors>
+			<connector xmi:idref="EAID_1368B9C4_F3C5_487c_8D77_100A5F09071B">
+				<source xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7">
+					<model ea_localid="119" type="Artifact" name="CanSM.c"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003">
+					<model ea_localid="121" type="Artifact" name="CanIf.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="225"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties conditional="«include»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={A57D1AF7-951F-4011-9FE6-D7FAFD6B9C52}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={1368B9C4-F3C5-487c-8D77-100A5F09071B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_59ABB6D5_9AD5_4075_937F_2B3C450AEA48">
+				<source xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7">
+					<model ea_localid="119" type="Artifact" name="CanSM.c"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_863CE799_104A_4737_A096_5E9A1E743AE1">
+					<model ea_localid="123" type="Artifact" name="CanNm_Cbk.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="227"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties conditional="«include»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={F89665EB-1A20-4be9-A41C-C23CF1EC0732}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={59ABB6D5-9AD5-4075-937F-2B3C450AEA48}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_678B412D_676A_4fca_A2E1_F5A84E9FE9D5">
+				<source xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7">
+					<model ea_localid="119" type="Artifact" name="CanSM.c"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8">
+					<model ea_localid="127" type="Artifact" name="CanSM.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="230"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties conditional="«include»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={7E6EB947-7EDE-44e1-8162-517537ADB452}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={678B412D-676A-4fca-A2E1-F5A84E9FE9D5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_80F397C5_47DB_4fe9_AB9B_D9347493BDA1">
+				<source xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7">
+					<model ea_localid="119" type="Artifact" name="CanSM.c"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891">
+					<model ea_localid="120" type="Artifact" name="Det.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="224"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties conditional="«include»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={60F5ED55-D001-42da-A996-A88EDC10711F}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={80F397C5-47DB-4fe9-AB9B-D9347493BDA1}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_BA50C547_4653_437c_B2DA_2499E586FDF6">
+				<source xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7">
+					<model ea_localid="119" type="Artifact" name="CanSM.c"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_6D41352D_082E_460a_9536_3A418A5720FF">
+					<model ea_localid="124" type="Artifact" name="CanSM_Internal.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="228"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties conditional="«include»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={9B40F8CD-F71C-4106-8E0E-7DD15700034B}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={BA50C547-4653-437c-B2DA-2499E586FDF6}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_E93B224F_697B_46bc_A640_219F1DC1EC36">
+				<source xmi:idref="EAID_293DE343_3861_43ac_B48B_857C96B22ED7">
+					<model ea_localid="119" type="Artifact" name="CanSM.c"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50">
+					<model ea_localid="122" type="Artifact" name="ComM_BusSM.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="226"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties conditional="«include»" virtualInheritance="0"/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={D798455E-856C-4d0a-A542-9D587B64DFC0}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={E93B224F-697B-46bc-A640-219F1DC1EC36}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_C4996DED_E658_4113_B982_A810CCBB7A16">
+				<source xmi:idref="EAID_6D41352D_082E_460a_9536_3A418A5720FF">
+					<model ea_localid="124" type="Artifact" name="CanSM_Internal.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8">
+					<model ea_localid="127" type="Artifact" name="CanSM.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="229"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={5DC7A2CE-8D2C-425f-A9B7-6CFC2D8DD0C1}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;GUID={DB14CC8F-3446-46d0-BFAD-10FEC67ECCED};@ENDSTEREO;$DES;$CLT={C4996DED-E658-4113-B982-A810CCBB7A16}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
+		</connectors>
+		<primitivetypes>
+			<packagedElement xmi:type="uml:Package" xmi:id="EAPrimitiveTypesPackage" name="EA_PrimitiveTypes_Package" visibility="public">
+				<packagedElement xmi:type="uml:Package" xmi:id="EAJavaTypesPackage" name="EA_Java_Types_Package" visibility="public">
+					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_void" name="void" visibility="public"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Package" xmi:id="EACTypesPackage" name="EA_C_Types_Package" visibility="public">
+					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_int" name="int" visibility="public">
+						<generalization xmi:type="uml:Generalization" xmi:id="EAC_int_General">
+							<general href="http://schema.omg.org/spec/UML/2.1/uml.xml#Integer"/>
+						</generalization>
+					</packagedElement>
+					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_Std_ReturnType" name="Std_ReturnType" visibility="public"/>
+				</packagedElement>
+			</packagedElement>
+		</primitivetypes>
+		<profiles>
+			<uml:Profile xmlns:uml="http://schema.omg.org/spec/UML/2.1/" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmi:id="thecustomprofile" nsPrefix="thecustomprofile" name="thecustomprofile" metamodelReference="mmref01">
+				<ownedComment xmi:type="uml:Comment" xmi:id="comment01" annotatedElement="thecustomprofile">
+					<body> Version:1.0</body>
+				</ownedComment>
+				<packageImport xmi:id="mmref01">
+					<importedPackage href="http://schema.omg.org/spec/UML/2.1/"/>
+				</packageImport>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="macro" name="macro">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="macro-base_Operation" name="base_Operation" association="Operation_macro">
+						<type href="http://schema.omg.org/spec/UML/2.1/Operation"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Operation_macro" name="A_Operation_macro" memberEnd="extension_macro macro-base_Operation">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_macro" name="extension_macro" type="macro" isComposite="true" lower="0" upper="1" memberEnd="extension_macro macro-base_Operation"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="include" name="include">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="include-base_Dependency" name="base_Dependency" association="Dependency_include">
+						<type href="http://schema.omg.org/spec/UML/2.1/Dependency"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Dependency_include" name="A_Dependency_include" memberEnd="extension_include include-base_Dependency">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_include" name="extension_include" type="include" isComposite="true" lower="0" upper="1" memberEnd="extension_include include-base_Dependency"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="header" name="header">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="header-base_Artifact" name="base_Artifact" association="Artifact_header">
+						<type href="http://schema.omg.org/spec/UML/2.1/Artifact"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Artifact_header" name="A_Artifact_header" memberEnd="extension_header header-base_Artifact">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_header" name="extension_header" type="header" isComposite="true" lower="0" upper="1" memberEnd="extension_header header-base_Artifact"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="BSW_UML_fixccey::header" name="BSW_UML_fixccey::header">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="BSW_UML_fixccey::header-base_Artifact" name="base_Artifact" association="Artifact_BSW_UML_fixccey::header">
+						<type href="http://schema.omg.org/spec/UML/2.1/Artifact"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Artifact_BSW_UML_fixccey::header" name="A_Artifact_BSW_UML_fixccey::header" memberEnd="extension_BSW_UML_fixccey::header BSW_UML_fixccey::header-base_Artifact">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_BSW_UML_fixccey::header" name="extension_BSW_UML_fixccey::header" type="BSW_UML_fixccey::header" isComposite="true" lower="0" upper="1" memberEnd="extension_BSW_UML_fixccey::header BSW_UML_fixccey::header-base_Artifact"/>
+				</packagedElement>
+			</uml:Profile>
+			<uml:Profile xmlns:uml="http://schema.omg.org/spec/UML/2.1/" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmi:id="D21A8EAD-F" nsPrefix="StandardProfileL2" name="StandardProfileL2" metamodelReference="mmref01">
+				<ownedComment xmi:type="uml:Comment" xmi:id="comment01" annotatedElement="D21A8EAD-F">
+					<body>StandardProfileL2 Version:1.0</body>
+				</ownedComment>
+				<packageImport xmi:id="mmref01">
+					<importedPackage href="http://schema.omg.org/spec/UML/2.1/"/>
+				</packageImport>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Source" name="Source">
+					<generalization xmi:type="uml:Generalization" xmi:id="Source_File_generalization" general="File"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Derive" name="Derive">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Derive-base_Abstraction" name="base_Abstraction" association="Abstraction_Derive">
+						<type href="http://schema.omg.org/spec/UML/2.1/Abstraction"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Abstraction_Derive" name="A_Abstraction_Derive" memberEnd="extension_Derive Derive-base_Abstraction">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Derive" name="extension_Derive" type="Derive" isComposite="true" lower="0" upper="1" memberEnd="extension_Derive Derive-base_Abstraction"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Service" name="Service">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Service-base_Component" name="base_Component" association="Component_Service">
+						<type href="http://schema.omg.org/spec/UML/2.1/Component"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Component_Service" name="A_Component_Service" memberEnd="extension_Service Service-base_Component">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Service" name="extension_Service" type="Service" isComposite="true" lower="0" upper="1" memberEnd="extension_Service Service-base_Component"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Process" name="Process">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Process-base_Component" name="base_Component" association="Component_Process">
+						<type href="http://schema.omg.org/spec/UML/2.1/Component"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Component_Process" name="A_Component_Process" memberEnd="extension_Process Process-base_Component">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Process" name="extension_Process" type="Process" isComposite="true" lower="0" upper="1" memberEnd="extension_Process Process-base_Component"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Implement" name="Implement">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Implement-base_Component" name="base_Component" association="Component_Implement">
+						<type href="http://schema.omg.org/spec/UML/2.1/Component"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Component_Implement" name="A_Component_Implement" memberEnd="extension_Implement Implement-base_Component">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Implement" name="extension_Implement" type="Implement" isComposite="true" lower="0" upper="1" memberEnd="extension_Implement Implement-base_Component"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Instantiate" name="Instantiate">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Instantiate-base_Usage" name="base_Usage" association="Usage_Instantiate">
+						<type href="http://schema.omg.org/spec/UML/2.1/Usage"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Usage_Instantiate" name="A_Usage_Instantiate" memberEnd="extension_Instantiate Instantiate-base_Usage">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Instantiate" name="extension_Instantiate" type="Instantiate" isComposite="true" lower="0" upper="1" memberEnd="extension_Instantiate Instantiate-base_Usage"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Document" name="Document">
+					<generalization xmi:type="uml:Generalization" xmi:id="Document_File_generalization" general="File"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="ModelLibrary" name="ModelLibrary">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="ModelLibrary-base_Package" name="base_Package" association="Package_ModelLibrary">
+						<type href="http://schema.omg.org/spec/UML/2.1/Package"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Package_ModelLibrary" name="A_Package_ModelLibrary" memberEnd="extension_ModelLibrary ModelLibrary-base_Package">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_ModelLibrary" name="extension_ModelLibrary" type="ModelLibrary" isComposite="true" lower="0" upper="1" memberEnd="extension_ModelLibrary ModelLibrary-base_Package"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Destroy" name="Destroy">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Destroy-base_Operation" name="base_Operation" association="Operation_Destroy">
+						<type href="http://schema.omg.org/spec/UML/2.1/Operation"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Operation_Destroy" name="A_Operation_Destroy" memberEnd="extension_Destroy Destroy-base_Operation">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Destroy" name="extension_Destroy" type="Destroy" isComposite="true" lower="0" upper="1" memberEnd="extension_Destroy Destroy-base_Operation"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="File" name="File">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="File-base_Artifact" name="base_Artifact" association="Artifact_File">
+						<type href="http://schema.omg.org/spec/UML/2.1/Artifact"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Artifact_File" name="A_Artifact_File" memberEnd="extension_File File-base_Artifact">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_File" name="extension_File" type="File" isComposite="true" lower="0" upper="1" memberEnd="extension_File File-base_Artifact"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Create" name="Create">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Create-base_Usage" name="base_Usage" association="Usage_Create">
+						<type href="http://schema.omg.org/spec/UML/2.1/Usage"/>
+					</ownedAttribute>
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Create-base_Operation" name="base_Operation" association="Operation_Create">
+						<type href="http://schema.omg.org/spec/UML/2.1/Operation"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Usage_Create" name="A_Usage_Create" memberEnd="extension_Create Create-base_Usage">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Create" name="extension_Create" type="Create" isComposite="true" lower="0" upper="1" memberEnd="extension_Create Create-base_Usage"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Operation_Create" name="A_Operation_Create" memberEnd="extension_Create Create-base_Operation">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Create" name="extension_Create" type="Create" isComposite="true" lower="0" upper="1" memberEnd="extension_Create Create-base_Operation"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Call" name="Call">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Call-base_Usage" name="base_Usage" association="Usage_Call">
+						<type href="http://schema.omg.org/spec/UML/2.1/Usage"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Usage_Call" name="A_Usage_Call" memberEnd="extension_Call Call-base_Usage">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Call" name="extension_Call" type="Call" isComposite="true" lower="0" upper="1" memberEnd="extension_Call Call-base_Usage"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Script" name="Script">
+					<generalization xmi:type="uml:Generalization" xmi:id="Script_File_generalization" general="File"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="BuildComponent" name="BuildComponent">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="BuildComponent-base_Component" name="base_Component" association="Component_BuildComponent">
+						<type href="http://schema.omg.org/spec/UML/2.1/Component"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Component_BuildComponent" name="A_Component_BuildComponent" memberEnd="extension_BuildComponent BuildComponent-base_Component">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_BuildComponent" name="extension_BuildComponent" type="BuildComponent" isComposite="true" lower="0" upper="1" memberEnd="extension_BuildComponent BuildComponent-base_Component"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Entity" name="Entity">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Entity-base_Component" name="base_Component" association="Component_Entity">
+						<type href="http://schema.omg.org/spec/UML/2.1/Component"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Component_Entity" name="A_Component_Entity" memberEnd="extension_Entity Entity-base_Component">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Entity" name="extension_Entity" type="Entity" isComposite="true" lower="0" upper="1" memberEnd="extension_Entity Entity-base_Component"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Responsibility" name="Responsibility">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Responsibility-base_Usage" name="base_Usage" association="Usage_Responsibility">
+						<type href="http://schema.omg.org/spec/UML/2.1/Usage"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Usage_Responsibility" name="A_Usage_Responsibility" memberEnd="extension_Responsibility Responsibility-base_Usage">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Responsibility" name="extension_Responsibility" type="Responsibility" isComposite="true" lower="0" upper="1" memberEnd="extension_Responsibility Responsibility-base_Usage"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Executable" name="Executable">
+					<generalization xmi:type="uml:Generalization" xmi:id="Executable_File_generalization" general="File"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="ImplementationClass" name="ImplementationClass">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="ImplementationClass-base_Class" name="base_Class" association="Class_ImplementationClass">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_ImplementationClass" name="A_Class_ImplementationClass" memberEnd="extension_ImplementationClass ImplementationClass-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_ImplementationClass" name="extension_ImplementationClass" type="ImplementationClass" isComposite="true" lower="0" upper="1" memberEnd="extension_ImplementationClass ImplementationClass-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Refine" name="Refine">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Refine-base_Dependency" name="base_Dependency" association="Dependency_Refine">
+						<type href="http://schema.omg.org/spec/UML/2.1/Dependency"/>
+					</ownedAttribute>
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Refine-base_Abstraction" name="base_Abstraction" association="Abstraction_Refine">
+						<type href="http://schema.omg.org/spec/UML/2.1/Abstraction"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Dependency_Refine" name="A_Dependency_Refine" memberEnd="extension_Refine Refine-base_Dependency">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Refine" name="extension_Refine" type="Refine" isComposite="true" lower="0" upper="1" memberEnd="extension_Refine Refine-base_Dependency"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Abstraction_Refine" name="A_Abstraction_Refine" memberEnd="extension_Refine Refine-base_Abstraction">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Refine" name="extension_Refine" type="Refine" isComposite="true" lower="0" upper="1" memberEnd="extension_Refine Refine-base_Abstraction"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Type" name="Type">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Type-base_Class" name="base_Class" association="Class_Type">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Type" name="A_Class_Type" memberEnd="extension_Type Type-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Type" name="extension_Type" type="Type" isComposite="true" lower="0" upper="1" memberEnd="extension_Type Type-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Subsystem" name="Subsystem">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Subsystem-base_Component" name="base_Component" association="Component_Subsystem">
+						<type href="http://schema.omg.org/spec/UML/2.1/Component"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Component_Subsystem" name="A_Component_Subsystem" memberEnd="extension_Subsystem Subsystem-base_Component">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Subsystem" name="extension_Subsystem" type="Subsystem" isComposite="true" lower="0" upper="1" memberEnd="extension_Subsystem Subsystem-base_Component"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Send" name="Send">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Send-base_Usage" name="base_Usage" association="Usage_Send">
+						<type href="http://schema.omg.org/spec/UML/2.1/Usage"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Usage_Send" name="A_Usage_Send" memberEnd="extension_Send Send-base_Usage">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Send" name="extension_Send" type="Send" isComposite="true" lower="0" upper="1" memberEnd="extension_Send Send-base_Usage"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Utility" name="Utility">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Utility-base_Class" name="base_Class" association="Class_Utility">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Utility" name="A_Class_Utility" memberEnd="extension_Utility Utility-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Utility" name="extension_Utility" type="Utility" isComposite="true" lower="0" upper="1" memberEnd="extension_Utility Utility-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Trace" name="Trace">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Trace-base_Abstraction" name="base_Abstraction" association="Abstraction_Trace">
+						<type href="http://schema.omg.org/spec/UML/2.1/Abstraction"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Abstraction_Trace" name="A_Abstraction_Trace" memberEnd="extension_Trace Trace-base_Abstraction">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Trace" name="extension_Trace" type="Trace" isComposite="true" lower="0" upper="1" memberEnd="extension_Trace Trace-base_Abstraction"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Focus" name="Focus">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Focus-base_Class" name="base_Class" association="Class_Focus">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Focus" name="A_Class_Focus" memberEnd="extension_Focus Focus-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Focus" name="extension_Focus" type="Focus" isComposite="true" lower="0" upper="1" memberEnd="extension_Focus Focus-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="SystemModel" name="SystemModel">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="SystemModel-base_Package" name="base_Package" association="Package_SystemModel">
+						<type href="http://schema.omg.org/spec/UML/2.1/Package"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Package_SystemModel" name="A_Package_SystemModel" memberEnd="extension_SystemModel SystemModel-base_Package">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_SystemModel" name="extension_SystemModel" type="SystemModel" isComposite="true" lower="0" upper="1" memberEnd="extension_SystemModel SystemModel-base_Package"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Metamodel" name="Metamodel">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Metamodel-base_Package" name="base_Package" association="Package_Metamodel">
+						<type href="http://schema.omg.org/spec/UML/2.1/Package"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Package_Metamodel" name="A_Package_Metamodel" memberEnd="extension_Metamodel Metamodel-base_Package">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Metamodel" name="extension_Metamodel" type="Metamodel" isComposite="true" lower="0" upper="1" memberEnd="extension_Metamodel Metamodel-base_Package"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Realization" name="Realization">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Realization-base_Class" name="base_Class" association="Class_Realization">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Realization" name="A_Class_Realization" memberEnd="extension_Realization Realization-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Realization" name="extension_Realization" type="Realization" isComposite="true" lower="0" upper="1" memberEnd="extension_Realization Realization-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Specification" name="Specification">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Specification-base_Class" name="base_Class" association="Class_Specification">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Specification" name="A_Class_Specification" memberEnd="extension_Specification Specification-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Specification" name="extension_Specification" type="Specification" isComposite="true" lower="0" upper="1" memberEnd="extension_Specification Specification-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Auxiliary" name="Auxiliary">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Auxiliary-base_Class" name="base_Class" association="Class_Auxiliary">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Auxiliary" name="A_Class_Auxiliary" memberEnd="extension_Auxiliary Auxiliary-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Auxiliary" name="extension_Auxiliary" type="Auxiliary" isComposite="true" lower="0" upper="1" memberEnd="extension_Auxiliary Auxiliary-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Framework" name="Framework">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Framework-base_Package" name="base_Package" association="Package_Framework">
+						<type href="http://schema.omg.org/spec/UML/2.1/Package"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Package_Framework" name="A_Package_Framework" memberEnd="extension_Framework Framework-base_Package">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Framework" name="extension_Framework" type="Framework" isComposite="true" lower="0" upper="1" memberEnd="extension_Framework Framework-base_Package"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Metaclass" name="Metaclass">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Metaclass-base_Class" name="base_Class" association="Class_Metaclass">
+						<type href="http://schema.omg.org/spec/UML/2.1/Class"/>
+					</ownedAttribute>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Extension" xmi:id="Class_Metaclass" name="A_Class_Metaclass" memberEnd="extension_Metaclass Metaclass-base_Class">
+					<ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="extension_Metaclass" name="extension_Metaclass" type="Metaclass" isComposite="true" lower="0" upper="1" memberEnd="extension_Metaclass Metaclass-base_Class"/>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Stereotype" xmi:id="Library" name="Library">
+					<generalization xmi:type="uml:Generalization" xmi:id="Library_File_generalization" general="File"/>
+				</packagedElement>
+			</uml:Profile>
+		</profiles>
+		<diagrams>
+			<diagram xmi:id="EAID_BAAA7B20_2FC2_4091_B0FE_373FF4E677B3">
+				<model package="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" localID="16" owner="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62"/>
+				<properties name="CanSM internal header dependencies" type="Deployment"/>
+				<project author="Art" version="1.0" created="2023-03-27 20:13:24" modified="2023-03-27 20:56:54"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=0;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=795;DocSize.cy=1138;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=B4AA27AC;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
+				<extendedProperties/>
+				<persistentstyle value="DGS=On=0:CNT=8:W=120:H=40:SG=0:SGH=0:AEB=0:;AR=0;DCL=0;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;Swimlanes=locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;"/>
+				<xrefs/>
+				<elements>
+					<element geometry="Left=19;Top=288;Right=130;Bottom=338;" subject="EAID_2FE1C4EA_1A91_4332_AB76_16C10DB3EFA8" seqno="1" style="DUID=71426E53;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+					<element geometry="Left=237;Top=354;Right=353;Bottom=404;" subject="EAID_6D41352D_082E_460a_9536_3A418A5720FF" seqno="2" style="DUID=3691C617;"/>
+					<element geometry="Left=437;Top=42;Right=542;Bottom=92;" subject="EAID_863CE799_104A_4737_A096_5E9A1E743AE1" seqno="3" style="DUID=53A0D549;"/>
+					<element geometry="Left=297;Top=42;Right=402;Bottom=92;" subject="EAID_C4492DDF_FA8F_4b5b_A908_0609ABE2BB50" seqno="4" style="DUID=D18B9199;"/>
+					<element geometry="Left=162;Top=42;Right=267;Bottom=92;" subject="EAID_96DF3486_EE6D_4d8b_B216_D83CA0785003" seqno="5" style="DUID=8E1ED8C9;"/>
+					<element geometry="Left=21;Top=42;Right=126;Bottom=92;" subject="EAID_2684B425_D6AF_4d6e_A155_8CD5DF9C0891" seqno="6" style="DUID=8CDBA31E;"/>
+					<element geometry="Left=207;Top=218;Right=372;Bottom=268;" subject="EAID_293DE343_3861_43ac_B48B_857C96B22ED7" seqno="7" style="DUID=F7B20695;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;HideIcon=0;"/>
+					<element geometry="SX=-32;SY=1;EX=-32;EY=1;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_80F397C5_47DB_4fe9_AB9B_D9347493BDA1" style="Mode=3;EOID=8CDBA31E;SOID=F7B20695;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-5;SY=8;EX=-5;EY=8;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_1368B9C4_F3C5_487c_8D77_100A5F09071B" style="Mode=3;EOID=8E1ED8C9;SOID=F7B20695;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=18;SY=0;EX=18;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_E93B224F_697B_46bc_A640_219F1DC1EC36" style="Mode=3;EOID=D18B9199;SOID=F7B20695;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=28;SY=-5;EX=28;EY=-5;EDGE=1;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_59ABB6D5_9AD5_4075_937F_2B3C450AEA48" style="Mode=3;EOID=53A0D549;SOID=F7B20695;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_BA50C547_4653_437c_B2DA_2499E586FDF6" style="Mode=3;EOID=3691C617;SOID=F7B20695;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_678B412D_676A_4fca_A2E1_F5A84E9FE9D5" style="Mode=3;EOID=71426E53;SOID=F7B20695;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=CX=39:CY=14:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C4996DED_E658_4113_B982_A810CCBB7A16" style="Mode=3;EOID=71426E53;SOID=3691C617;Color=-1;LWidth=0;Hidden=0;"/>
+				</elements>
+			</diagram>
+			<diagram xmi:id="EAID_B55CA95B_1C6E_4090_8BEE_7FB7C9A377F3">
+				<model package="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62" localID="17" owner="EAPK_3121C1EA_C93B_48c2_81C3_8DD163EC2C62"/>
+				<properties name="CanSM internal structure" type="Logical"/>
+				<project author="Art" version="1.0" created="2023-03-27 20:22:41" modified="2023-03-27 20:47:36"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=0;PPgs.cy=0;DocSize.cx=795;DocSize.cy=1138;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=58A2D323;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
+				<extendedProperties/>
+				<persistentstyle value="DGS=On=0:CNT=8:W=120:H=40:SG=0:SGH=0:AEB=0:;AR=0;DCL=0;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;Swimlanes=locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;SwimlaneFont=lfh:-13,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;;"/>
+				<xrefs/>
+				<elements>
+					<element geometry="Left=35;Top=185;Right=466;Bottom=275;" subject="EAID_A14A23C6_FC4C_4cbb_B43C_8E6410CB801B" seqno="1" style="DUID=2F243B81;"/>
+					<element geometry="Left=35;Top=62;Right=242;Bottom=153;" subject="EAID_3B0ED937_4FFF_4be8_B7AE_2A81E999A170" seqno="2" style="DUID=240E13FC;"/>
+				</elements>
+			</diagram>
+		</diagrams>
+	</xmi:Extension>
+</xmi:XMI>

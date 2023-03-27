@@ -99,18 +99,6 @@
 					<ownedParameter xmi:id="EAID_RT000000_4407_4164_B7FC_00DBFEF76026" name="return" direction="return" type="EAJava_void"/>
 				</ownedOperation>
 			</packagedElement>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_F9193233_C786_435d_B902_403C3F80712F" name="CanSM.c" visibility="public"/>
-			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_3D4A0677_AB6E_4720_853B_90951276DB59" visibility="public" supplier="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74" client="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
-			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3" visibility="public" supplier="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" client="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
-			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_5971C95D_45F9_43cd_A1CD_00D16ECE98BE" visibility="public" supplier="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" client="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" name="CanSM.h" visibility="public"/>
-			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_F8906881_0592_4c88_A128_E01E5B4C2B27" visibility="public" supplier="EAID_88379006_8035_440f_91E4_FBFE67A18B89" client="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF"/>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" name="CanSM_BswM.h" visibility="public"/>
-			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_A2FB06D9_FB28_44ad_9B93_21B797FF45DF" visibility="public" supplier="EAID_88379006_8035_440f_91E4_FBFE67A18B89" client="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584"/>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_88379006_8035_440f_91E4_FBFE67A18B89" name="CanSM_Cfg.h" visibility="public"/>
-			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36" visibility="public" supplier="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5" client="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74" name="CanSM_Priv.h" visibility="public"/>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5" name="CanSM_Types.h" visibility="public"/>
 			<packagedElement xmi:type="uml:Enumeration" xmi:id="EAID_982BFC5E_8F15_4c59_876E_C14CADEDF08C" name="Calculated Constants" visibility="public">
 				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="EAID_7D9F088A_DC46_453d_A15B_CC1D9B5CC590" name="CANSM_MAX_DLT_STD_HEADER_SIZE" visibility="public"/>
 				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="EAID_F293138A_6D1F_403b_8BFF_052A0139F4A2" name="CANSM_MAX_DLT_HEADER_SIZE" visibility="public"/>
@@ -134,6 +122,20 @@
 				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="EAID_71C59511_E9E1_43bc_94CE_5177CB150A99" name="CANSM_E_PARAM_CONTROLLER" visibility="public"/>
 				<ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="EAID_00BDAB2A_0C9A_41ba_93EE_FC4EB76B94CD" name="CANSM_E_NOT_IN_NO_COM" visibility="public"/>
 			</packagedElement>
+			<packagedElement xmi:type="uml:Package" xmi:id="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" name="Source files" visibility="public">
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_F9193233_C786_435d_B902_403C3F80712F" name="CanSM.c" visibility="public"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_3D4A0677_AB6E_4720_853B_90951276DB59" visibility="public" supplier="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74" client="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3" visibility="public" supplier="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" client="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_5971C95D_45F9_43cd_A1CD_00D16ECE98BE" visibility="public" supplier="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" client="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" name="CanSM.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_F8906881_0592_4c88_A128_E01E5B4C2B27" visibility="public" supplier="EAID_88379006_8035_440f_91E4_FBFE67A18B89" client="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" name="CanSM_BswM.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_A2FB06D9_FB28_44ad_9B93_21B797FF45DF" visibility="public" supplier="EAID_88379006_8035_440f_91E4_FBFE67A18B89" client="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_88379006_8035_440f_91E4_FBFE67A18B89" name="CanSM_Cfg.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36" visibility="public" supplier="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5" client="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74" name="CanSM_Priv.h" visibility="public"/>
+				<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5" name="CanSM_Types.h" visibility="public"/>
+			</packagedElement>
 		</packagedElement>
 		<C:struct base_Class="EAID_B9B0161D_ACEC_456a_BEDA_CF05BC189567"/>
 		<thecustomprofile:bsw.traceRefs base_Class="EAID_B9B0161D_ACEC_456a_BEDA_CF05BC189567" bsw.traceRefs="SRS_BSW_00400,SRS_BSW_00438"/>
@@ -154,6 +156,14 @@
 		<thecustomprofile:callback base_Operation="EAID_49F4FF4B_F893_4300_9659_ADC1673076DA"/>
 		<thecustomprofile:macro base_Operation="EAID_386532DF_AAFB_4e60_9914_2351A229BF1C"/>
 		<thecustomprofile:macro base_Operation="EAID_70E742CB_4407_4164_B7FC_00DBFEF76026"/>
+		<thecustomprofile:macros base_Enumeration="EAID_982BFC5E_8F15_4c59_876E_C14CADEDF08C"/>
+		<thecustomprofile:bsw.traceRefs base_Enumeration="EAID_7F18C868_646B_4826_9339_651E89F66B1C" bsw.traceRefs="SRS_ModeMgm_09251"/>
+		<thecustomprofile:bsw.swsItemId base_Enumeration="EAID_7F18C868_646B_4826_9339_651E89F66B1C" bsw.swsItemId="SWS_CanSM_00598"/>
+		<thecustomprofile:bsw.traceRefs base_Enumeration="EAID_A6615DC6_ACFF_4386_8127_A1C30B66199C" bsw.traceRefs="SRS_BSW_00405,SRS_BSW_00101,SRS_BSW_00406,SRS_BSW_00358,SRS_BSW_00414,SRS_BSW_00404"/>
+		<thecustomprofile:bsw.swsItemId base_Enumeration="EAID_A6615DC6_ACFF_4386_8127_A1C30B66199C" bsw.swsItemId="SWS_CanSM_00596"/>
+		<thecustomprofile:range base_EnumerationLiteral="EAID_67C562E7_16E5_4387_98EF_88EA38584D4B"/>
+		<thecustomprofile:range base_EnumerationLiteral="EAID_58A3BD42_2114_4739_9140_4B2D171DF720"/>
+		<thecustomprofile:macros base_Enumeration="EAID_3B9480BD_77B2_4a47_836A_2384394F3002"/>
 		<StandardProfileL2:Source base_Artifact="EAID_F9193233_C786_435d_B902_403C3F80712F"/>
 		<thecustomprofile:include base_Dependency="EAID_3D4A0677_AB6E_4720_853B_90951276DB59"/>
 		<thecustomprofile:include base_Dependency="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3"/>
@@ -166,14 +176,6 @@
 		<thecustomprofile:include base_Dependency="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36"/>
 		<thecustomprofile:header base_Artifact="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74"/>
 		<thecustomprofile:header base_Artifact="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5"/>
-		<thecustomprofile:macros base_Enumeration="EAID_982BFC5E_8F15_4c59_876E_C14CADEDF08C"/>
-		<thecustomprofile:bsw.traceRefs base_Enumeration="EAID_7F18C868_646B_4826_9339_651E89F66B1C" bsw.traceRefs="SRS_ModeMgm_09251"/>
-		<thecustomprofile:bsw.swsItemId base_Enumeration="EAID_7F18C868_646B_4826_9339_651E89F66B1C" bsw.swsItemId="SWS_CanSM_00598"/>
-		<thecustomprofile:bsw.traceRefs base_Enumeration="EAID_A6615DC6_ACFF_4386_8127_A1C30B66199C" bsw.traceRefs="SRS_BSW_00405,SRS_BSW_00101,SRS_BSW_00406,SRS_BSW_00358,SRS_BSW_00414,SRS_BSW_00404"/>
-		<thecustomprofile:bsw.swsItemId base_Enumeration="EAID_A6615DC6_ACFF_4386_8127_A1C30B66199C" bsw.swsItemId="SWS_CanSM_00596"/>
-		<thecustomprofile:range base_EnumerationLiteral="EAID_67C562E7_16E5_4387_98EF_88EA38584D4B"/>
-		<thecustomprofile:range base_EnumerationLiteral="EAID_58A3BD42_2114_4739_9140_4B2D171DF720"/>
-		<thecustomprofile:macros base_Enumeration="EAID_3B9480BD_77B2_4a47_836A_2384394F3002"/>
 	</uml:Model>
 	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
 		<elements>
@@ -953,90 +955,6 @@
 					</operation>
 				</operations>
 			</element>
-			<element xmi:idref="EAID_F9193233_C786_435d_B902_403C3F80712F" xmi:type="uml:Artifact" name="CanSM.c" scope="public">
-				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="103" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="Source" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:26:47" modified="2023-03-26 12:27:44" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={6945B86E-9F54-43f3-86AD-C86BD2637A0B}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Source;FQName=StandardProfileL2::Source;@ENDSTEREO;$DES;$CLT={F9193233-C786-435d-B902-403C3F80712F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="CanSM"/>
-				<links>
-					<Dependency xmi:id="EAID_3D4A0677_AB6E_4720_853B_90951276DB59" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74"/>
-					<Dependency xmi:id="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584"/>
-					<Dependency xmi:id="EAID_5971C95D_45F9_43cd_A1CD_00D16ECE98BE" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" xmi:type="uml:Artifact" name="CanSM.h" scope="public">
-				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="98" ea_eleType="element"/>
-				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Markus Brenner" version="1.0" phase="1.0" created="2023-03-26 12:22:17" modified="2023-03-26 12:31:11" complexity="1" status="Proposed"/>
-				<code gentype="AUTOSAR"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={36E97F81-F0A6-4d30-8988-A8D7897F843D}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={38DA58C3-173D-46b9-A447-B18F60B60236};FQName=BSW_UML_fixccey::header;@ENDSTEREO;$DES;$CLT={17CB2B98-BC2B-4eea-9DB1-5FEEDAE33AAF}$CLT;$ENDXREF;$XREFPROP=$XID={2D2C1B43-A05B-43de-8A4C-257D78ED5095}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=fileName@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={17CB2B98-BC2B-4eea-9DB1-5FEEDAE33AAF}$CLT;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="CanSM"/>
-				<links>
-					<Dependency xmi:id="EAID_F8906881_0592_4c88_A128_E01E5B4C2B27" start="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
-					<Dependency xmi:id="EAID_5971C95D_45F9_43cd_A1CD_00D16ECE98BE" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" xmi:type="uml:Artifact" name="CanSM_BswM.h" scope="public">
-				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="99" ea_eleType="element"/>
-				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Markus Brenner" version="1.0" phase="1.0" created="2023-03-26 12:22:17" modified="2023-03-26 12:31:22" complexity="1" status="Proposed"/>
-				<code gentype="AUTOSAR"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={EFCB9BA1-223F-4d48-ABE6-D426ED568155}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={38DA58C3-173D-46b9-A447-B18F60B60236};@ENDSTEREO;$DES;$CLT={8BB684F3-166A-46e6-A92B-8444B86A5584}$CLT;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="CanSM"/>
-				<links>
-					<Dependency xmi:id="EAID_A2FB06D9_FB28_44ad_9B93_21B797FF45DF" start="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
-					<Dependency xmi:id="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_88379006_8035_440f_91E4_FBFE67A18B89" xmi:type="uml:Artifact" name="CanSM_Cfg.h" scope="public">
-				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="102" ea_eleType="element"/>
-				<properties documentation="Generated: NO" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:25:39" modified="2023-03-26 12:31:43" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={CB90EE28-1400-4025-9BCB-D06544B8BA13}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;@ENDSTEREO;$DES;$CLT={88379006-8035-440f-91E4-FBFE67A18B89}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="CanSM"/>
-				<links>
-					<Dependency xmi:id="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36" start="EAID_88379006_8035_440f_91E4_FBFE67A18B89" end="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5"/>
-					<Dependency xmi:id="EAID_A2FB06D9_FB28_44ad_9B93_21B797FF45DF" start="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
-					<Dependency xmi:id="EAID_F8906881_0592_4c88_A128_E01E5B4C2B27" start="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74" xmi:type="uml:Artifact" name="CanSM_Priv.h" scope="public">
-				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="101" ea_eleType="element"/>
-				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:23:53" modified="2023-03-26 12:31:17" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={912AFA25-0E00-4843-B3DB-DEB639A3BB27}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;@ENDSTEREO;$DES;$CLT={F8EAEA77-8693-4730-B8F3-0BBC0BF0EB74}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="CanSM"/>
-				<links>
-					<Dependency xmi:id="EAID_3D4A0677_AB6E_4720_853B_90951276DB59" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5" xmi:type="uml:Artifact" name="CanSM_Types.h" scope="public">
-				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="100" ea_eleType="element"/>
-				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:22:58" modified="2023-03-26 12:31:46" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs value="$XREFPROP=$XID={26F07603-DCD1-4687-8DFB-07FC00BBF219}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;@ENDSTEREO;$DES;$CLT={07B3D435-55A2-4b7e-B315-5804FFDA60A5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<extendedProperties tagged="0" package_name="CanSM"/>
-				<links>
-					<Dependency xmi:id="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36" start="EAID_88379006_8035_440f_91E4_FBFE67A18B89" end="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5"/>
-				</links>
-			</element>
 			<element xmi:idref="EAID_982BFC5E_8F15_4c59_876E_C14CADEDF08C" xmi:type="uml:Enumeration" name="Calculated Constants" scope="public">
 				<model package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="115" ea_eleType="element"/>
 				<properties documentation="Declared in:   CanSM.h&#xA;&#xA;This enum is not part of Autosar spec - added for testing purposes only." isSpecification="false" sType="Enumeration" nType="0" scope="public" stereotype="macros" isRoot="false" isLeaf="false" isAbstract="false"/>
@@ -1316,6 +1234,104 @@
 						<xrefs value="$XREFPROP=$XID={F48D5F90-E83A-4e6e-A354-8394CB8C7B7D}$XID;$NAM=Stereotypes$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enum;@ENDSTEREO;$DES;$CLT={00BDAB2A-0C9A-41ba-93EE-FC4EB76B94CD}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 					</attribute>
 				</attributes>
+			</element>
+			<element xmi:idref="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" xmi:type="uml:Package" name="Source files" scope="public">
+				<model package2="EAID_D8962FD8_AC35_499b_BDA4_059DD027A33A" package="EAPK_E4B265AF_1563_4c53_9CA1_A504F31765DC" tpos="0" ea_localid="21" ea_eleType="package"/>
+				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-27 20:48:45" modified="2023-03-27 20:48:53" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="CanSM"/>
+				<packageproperties version="1.0"/>
+				<paths/>
+				<times created="2023-03-27 20:48:45" modified="2023-03-27 20:48:53"/>
+				<flags iscontrolled="0" isprotected="0" usedtd="0" logxml="0"/>
+			</element>
+			<element xmi:idref="EAID_F9193233_C786_435d_B902_403C3F80712F" xmi:type="uml:Artifact" name="CanSM.c" scope="public">
+				<model package="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" tpos="0" ea_localid="103" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="Source" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:26:47" modified="2023-03-27 20:49:01" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={6945B86E-9F54-43f3-86AD-C86BD2637A0B}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=Source;FQName=StandardProfileL2::Source;@ENDSTEREO;$DES;$CLT={F9193233-C786-435d-B902-403C3F80712F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_3D4A0677_AB6E_4720_853B_90951276DB59" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74"/>
+					<Dependency xmi:id="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584"/>
+					<Dependency xmi:id="EAID_5971C95D_45F9_43cd_A1CD_00D16ECE98BE" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" xmi:type="uml:Artifact" name="CanSM.h" scope="public">
+				<model package="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" tpos="0" ea_localid="98" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Markus Brenner" version="1.0" phase="1.0" created="2023-03-26 12:22:17" modified="2023-03-27 20:49:01" complexity="1" status="Proposed"/>
+				<code gentype="AUTOSAR"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={36E97F81-F0A6-4d30-8988-A8D7897F843D}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={38DA58C3-173D-46b9-A447-B18F60B60236};FQName=BSW_UML_fixccey::header;@ENDSTEREO;$DES;$CLT={17CB2B98-BC2B-4eea-9DB1-5FEEDAE33AAF}$CLT;$ENDXREF;$XREFPROP=$XID={2D2C1B43-A05B-43de-8A4C-257D78ED5095}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=fileName@ENDNAME;@TYPE=String@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={17CB2B98-BC2B-4eea-9DB1-5FEEDAE33AAF}$CLT;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_F8906881_0592_4c88_A128_E01E5B4C2B27" start="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
+					<Dependency xmi:id="EAID_5971C95D_45F9_43cd_A1CD_00D16ECE98BE" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" xmi:type="uml:Artifact" name="CanSM_BswM.h" scope="public">
+				<model package="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" tpos="0" ea_localid="99" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Markus Brenner" version="1.0" phase="1.0" created="2023-03-26 12:22:17" modified="2023-03-27 20:49:01" complexity="1" status="Proposed"/>
+				<code gentype="AUTOSAR"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={EFCB9BA1-223F-4d48-ABE6-D426ED568155}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;GUID={38DA58C3-173D-46b9-A447-B18F60B60236};@ENDSTEREO;$DES;$CLT={8BB684F3-166A-46e6-A92B-8444B86A5584}$CLT;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_A2FB06D9_FB28_44ad_9B93_21B797FF45DF" start="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
+					<Dependency xmi:id="EAID_429585BF_06BB_4b35_89BC_E1B90F7178F3" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_88379006_8035_440f_91E4_FBFE67A18B89" xmi:type="uml:Artifact" name="CanSM_Cfg.h" scope="public">
+				<model package="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" tpos="0" ea_localid="102" ea_eleType="element"/>
+				<properties documentation="Generated: NO" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:25:39" modified="2023-03-27 20:49:01" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={CB90EE28-1400-4025-9BCB-D06544B8BA13}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;@ENDSTEREO;$DES;$CLT={88379006-8035-440f-91E4-FBFE67A18B89}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36" start="EAID_88379006_8035_440f_91E4_FBFE67A18B89" end="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5"/>
+					<Dependency xmi:id="EAID_A2FB06D9_FB28_44ad_9B93_21B797FF45DF" start="EAID_8BB684F3_166A_46e6_A92B_8444B86A5584" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
+					<Dependency xmi:id="EAID_F8906881_0592_4c88_A128_E01E5B4C2B27" start="EAID_17CB2B98_BC2B_4eea_9DB1_5FEEDAE33AAF" end="EAID_88379006_8035_440f_91E4_FBFE67A18B89"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74" xmi:type="uml:Artifact" name="CanSM_Priv.h" scope="public">
+				<model package="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" tpos="0" ea_localid="101" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:23:53" modified="2023-03-27 20:49:01" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={912AFA25-0E00-4843-B3DB-DEB639A3BB27}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;@ENDSTEREO;$DES;$CLT={F8EAEA77-8693-4730-B8F3-0BBC0BF0EB74}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_3D4A0677_AB6E_4720_853B_90951276DB59" start="EAID_F9193233_C786_435d_B902_403C3F80712F" end="EAID_F8EAEA77_8693_4730_B8F3_0BBC0BF0EB74"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5" xmi:type="uml:Artifact" name="CanSM_Types.h" scope="public">
+				<model package="EAPK_D8962FD8_AC35_499b_BDA4_059DD027A33A" tpos="0" ea_localid="100" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 12:22:58" modified="2023-03-27 20:49:01" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={26F07603-DCD1-4687-8DFB-07FC00BBF219}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=header;@ENDSTEREO;$DES;$CLT={07B3D435-55A2-4b7e-B315-5804FFDA60A5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="Source files"/>
+				<links>
+					<Dependency xmi:id="EAID_9DEEC390_FFF6_4edd_BD91_B382211ABC36" start="EAID_88379006_8035_440f_91E4_FBFE67A18B89" end="EAID_07B3D435_55A2_4b7e_B315_5804FFDA60A5"/>
+				</links>
 			</element>
 		</elements>
 		<connectors>
