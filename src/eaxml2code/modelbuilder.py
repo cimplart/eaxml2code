@@ -76,9 +76,11 @@ class ModelBuilder:
 
 
     def visit_packaged_element(self, node: dict, xmi_type: str):
+
         if xmi_type == 'uml:Package' and node['attributes']['xmi:id'].startswith('EAPK_'):
-            self._model['component'] = node['attributes']['name']
-        elif xmi_type in [ 'uml:Class', 'uml:Interface', 'uml:Artifact', 'uml:Enumeration' ]:
+            if not 'component' in self._model:
+                self._model['component'] = node['attributes']['name']
+        elif xmi_type in [ 'uml:Class', 'uml:Interface', 'uml:Artifact', 'uml:Enumeration', 'uml:Component' ]:
             model_el = {
                 'name': node['attributes']['name'],
                 'xmi:type': xmi_type,
@@ -98,7 +100,7 @@ class ModelBuilder:
 
     def visit_owned_attribute(self, node: dict, xmi_type: str):
         model_el = {
-            'name': node['attributes']['name'],
+            'name': node['attributes'].get('name', ''),
             'xmi:id': node['attributes']['xmi:id'],
             'owner': self.current_element['xmi:id']
         }
@@ -189,8 +191,9 @@ class ModelBuilder:
                 if "attributes" in c:
                     found['description'] = c['attributes']['value']
             elif c['name'] == 'properties' and 'attributes' in c:
-                if 'type' in c['attributes']:
-                    found['type'] = c['attributes']['type']
+                found['type'] = c['attributes'].get('type', '')
+                found['static'] = 'static' if c['attributes'].get('static', '') == '1' else ''
+
 
     def visit_ea_operation(self, node:dict):
         found = self._id_map[node['attributes']['xmi:idref']]
@@ -397,7 +400,7 @@ class ModelBuilder:
                 add_to_code = True
             else:
                 descr += line.strip() + '\n'
-        func['definition'] = code.replace('&amp;&amp;', '&&').replace('&lt;', '<').replace('&gt;', '>')
+        func['definition'] = code.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
         # Remove Definition: from description.
         func['description'] = descr.strip()
 
@@ -520,7 +523,9 @@ class ModelBuilder:
                     if a['owner'] == el['xmi:id']:
                         variables_group['variables'] += [ a ]
                         # description is already set
-                        a['syntax'] = a['type'] + ' ' + a['name']
+                        a['syntax'] = a['static'] + bool(a['static']) * ' ' + a['type'] + ' ' + a['name']
+                        if a['initial']:
+                            a['syntax'] += ' = ' + a['initial']
 
     #
     # Post-process macro constants

@@ -89,33 +89,38 @@ def main():
 
             builder.walk_raw_model_subtree(root)
 
-        if args['verbose']:
-            print("Dumping model dict...")
-            js = json.dumps(builder._model, indent=3)
-            with open(args['odir'] + os.sep + 'modeldump.json', 'w') as fdump:
-                fdump.write(js)
+    if args['verbose']:
+        print("Dumping model dict...")
+        js = json.dumps(builder._model, indent=3)
+        with open(args['odir'] + os.sep + 'modeldump.json', 'w') as fdump:
+            fdump.write(js)
 
-        builder.post_process()
+    builder.post_process()
 
-        for header in builder._headers:
-            try:
-                if args['dump']:
-                    print('------ Dump content for header: ', header, ' ------')
-                    dump = json.dumps(builder._headers[header], indent=3)
-                    print(dump)
-                if builder._headers[header]['generated']:
-                    buf = StringIO()
-                    ctx = Context(buf, file=header, content=builder._headers[header])
-                    header_templ.render_context(ctx)
-                    if args['verbose']:
-                        print("Writing ", header)
-                    with open(args['odir'] + '/' + header, "w") as outf:
-                        outf.write(buf.getvalue())
-                else:
-                    if args['verbose']:
-                        print("Skip writing ", header)
-            except:
-                print('Exception while rendering ' + header + ': ' + exceptions.text_error_template().render())
+    print("Generated headers:")
+    for header in builder._headers:
+        if builder._headers[header]['generated']:
+            print('   ' + header)
+
+    for header in builder._headers:
+        try:
+            if args['dump']:
+                print('------ Dump content for header: ', header, ' ------')
+                dump = json.dumps(builder._headers[header], indent=3)
+                print(dump)
+            if builder._headers[header]['generated']:
+                buf = StringIO()
+                ctx = Context(buf, file=header, content=builder._headers[header])
+                header_templ.render_context(ctx)
+                if args['verbose']:
+                    print("Writing ", header)
+                with open(args['odir'] + '/' + header, "w") as outf:
+                    outf.write(buf.getvalue())
+            else:
+                if args['verbose']:
+                    print("Skip writing ", header)
+        except:
+            print('Exception while rendering ' + header + ': ' + exceptions.text_error_template().render())
 
     if args['verbose']:
         print("Done.")
