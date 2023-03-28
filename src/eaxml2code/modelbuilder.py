@@ -352,7 +352,10 @@ class ModelBuilder:
                             self._set_func_syntax(f)
 
     def _set_func_syntax(self, func):
-        syntax = func['return-value']['type'] + ' ' + func['name'] + '('
+        syntax = ''
+        if func['static'] == 'true':
+            syntax = 'static '
+        syntax += func['return-value']['type'] + ' ' + func['name'] + '('
         for p in func['parameters']:
             if p['name'] == "...":
                 syntax += p['name'] + ', '
