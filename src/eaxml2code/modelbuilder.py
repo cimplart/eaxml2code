@@ -151,7 +151,7 @@ class ModelBuilder:
         for c in node['children']:
             if c['name'] == 'properties' and "attributes" in c:
                 if 'documentation' in c['attributes']:
-                    found['description'] = c['attributes']['documentation']
+                    found['description'] = self._clear_formatting(c['attributes']['documentation'])
                     if xmi_type != 'uml:Artifact':
                         found['header'] = self._extract_header(found['name'], found['description'])
                     else:
@@ -189,7 +189,7 @@ class ModelBuilder:
             elif c['name'] == 'documentation':
                 found.setdefault('description', '')
                 if "attributes" in c:
-                    found['description'] = c['attributes']['value']
+                    found['description'] = self._clear_formatting(c['attributes']['value'])
             elif c['name'] == 'properties' and 'attributes' in c:
                 found['type'] = c['attributes'].get('type', '')
                 found['static'] = 'static' if c['attributes'].get('static', '') == '1' else ''
@@ -212,7 +212,7 @@ class ModelBuilder:
                     found['return-value']['type'] = 'void'
             elif c['name'] == 'documentation':
                 if 'attributes' in c:
-                    found['description'] = c['attributes']['value']
+                    found['description'] = self._clear_formatting(c['attributes']['value'])
                     if found['return-value']['type'] != 'void':
                         found['return-value']['description'] = self._extract_return_value_description(found['name'], found['description'])
                 elif found.get('return-value', {}).get('type', 'void') != 'void':
@@ -249,7 +249,7 @@ class ModelBuilder:
                     found_param['position'] = cc['attributes']['pos']
                     found_param['const'] = cc['attributes']['const']
                 elif cc['name'] == 'documentation' and 'attributes' in cc:
-                    found_param['description'] = cc['attributes']['value']
+                    found_param['description'] = self._clear_formatting(cc['attributes']['value'])
 
     def visit_ea_connector(self, node:dict):
         found = self._id_map.get(node['attributes']['xmi:idref'], None)
@@ -482,12 +482,20 @@ class ModelBuilder:
     def _make_typedef_from_base(self, el, base):
         return 'typedef ' + base['name'] + ' ' + el['name']
 
-    def _clean_el_description(self, descr):
+    def _clear_formatting(self, descr):
         cleaned = ''
         for line in descr.split('\n'):
-            l = line.replace('<b>', '').replace('</b>', '')
-            if 'Declared in:' not in l and 'Generated:' not in l:
-                cleaned += l + '\n'
+            l = line.replace('<b>', '').replace('</b>', '').replace('<i>', '').replace('</i>', '')
+            cleaned += l + '\n'
+        return cleaned.strip()
+
+
+    def _clean_el_description(self, descr):
+        unformatted = self._clear_formatting(descr)
+        cleaned = ''
+        for line in unformatted.split('\n'):
+            if 'Declared in:' not in line and 'Generated:' not in line:
+                cleaned += line + '\n'
         return cleaned.strip()
 
     def _add_struct_fields(self, el, type):

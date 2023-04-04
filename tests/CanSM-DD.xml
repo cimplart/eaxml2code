@@ -210,7 +210,7 @@
 						<code/>
 						<style/>
 						<styleex/>
-						<documentation/>
+						<documentation value="&lt;i&gt;Return value&lt;/i&gt;: operation result"/>
 						<tags/>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_9D34_4289_8720_23910296C55A" visibility="public">
@@ -257,7 +257,7 @@
 						<code/>
 						<style/>
 						<styleex/>
-						<documentation/>
+						<documentation value="&lt;b&gt;Return value&lt;/b&gt;: operation result"/>
 						<tags/>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_A36E_404b_8FF2_FF62040D7F9A" visibility="public">
