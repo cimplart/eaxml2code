@@ -160,7 +160,8 @@ class ModelBuilder:
                     found['stereotype'] = c['attributes']['stereotype']
             elif c['name'] == 'links' and found.get('stereotype', '') == 'typedef':
                 for cc in c['children']:
-                    if cc['name'] == 'Generalization':
+                    #Only consider outgoing links.
+                    if cc['name'] == 'Generalization' and cc['attributes']['end'] != found['xmi:id']:
                         found['base:id'] = cc['attributes']['end']
 
     def _extract_header(self, el_name, notes):
