@@ -329,6 +329,9 @@ class ModelBuilder:
                     'functions-group': el['name'],
                     'functions': [ ]
                 }
+                if 'header' not in el:
+                    print(f"WARNING: interface {el['name']} not assigned to any header file, will not be generated")
+                    continue
                 self._headers[el['header']]['functions'] += [ functions_group ]
                 #add functions for this owner
                 for f in self._model['operations']:
