@@ -332,6 +332,9 @@ class ModelBuilder:
                 if 'header' not in el:
                     print(f"WARNING: interface {el['name']} not assigned to any header file, will not be generated")
                     continue
+                if el['header'] not in self._headers:
+                    print(f"WARNING: interface {el['name']} assigned to undefined header file {el['header']}, will not be generated")
+                    continue
                 self._headers[el['header']]['functions'] += [ functions_group ]
                 #add functions for this owner
                 for f in self._model['operations']:
