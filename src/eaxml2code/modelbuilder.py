@@ -370,6 +370,8 @@ class ModelBuilder:
                 type = p['type']
                 if p['const'] == 'true' and not type.startswith('const'):
                     type = 'const ' + type
+                if p['direction'] in [ 'out', 'inout' ] and not type.endswith('*'):
+                    type = type + '*'
                 syntax += type + ' ' + p['name'] + ', '
         if syntax.endswith(', '):
             syntax = syntax[:-2]
