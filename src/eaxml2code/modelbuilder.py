@@ -59,10 +59,14 @@ class ModelBuilder:
         if node['name'] in method_map.keys():
             if "attributes" in node:
                 attr = node["attributes"]
-                if "xmi:type" in attr:
-                    method_map[node['name']](node, attr['xmi:type'])
-                else:
-                    method_map[node['name']](node)
+                try:
+                    if "xmi:type" in attr:
+                        method_map[node['name']](node, attr['xmi:type'])
+                    else:
+                        method_map[node['name']](node)
+                except Exception as e:
+                    e_str = str(e)
+                    print(f"WARNING: exception visiting element {node['name']}: {e_str}")
             else:
                 print(f"WARNING: {node['name']} without attributes, ignored")
                 return
@@ -81,13 +85,16 @@ class ModelBuilder:
             if not 'component' in self._model:
                 self._model['component'] = node['attributes']['name']
         elif xmi_type in [ 'uml:Class', 'uml:Interface', 'uml:Artifact', 'uml:Enumeration', 'uml:Component' ]:
-            model_el = {
-                'name': node['attributes']['name'],
-                'xmi:type': xmi_type,
-                'xmi:id': node['attributes']['xmi:id']
-            }
-            self._model['elements'] += [ model_el ]
-            self._id_map[model_el['xmi:id']] = self._model['elements'][-1]
+            if 'name' in node['attributes']:
+                model_el = {
+                    'name': node['attributes']['name'],
+                    'xmi:type': xmi_type,
+                    'xmi:id': node['attributes']['xmi:id']
+                }
+                self._model['elements'] += [ model_el ]
+                self._id_map[model_el['xmi:id']] = self._model['elements'][-1]
+            else:
+                print(f"INFO: ignoring {xmi_type} id={node['attributes']['xmi:id']} without a name")
         elif xmi_type in [ 'uml:Dependency' ]:
             model_el = {
                 'xmi:type': xmi_type,
@@ -141,7 +148,7 @@ class ModelBuilder:
 
     def visit_ea_element(self, node: dict, xmi_type: str):
         if xmi_type not in [ 'uml:Class', 'uml:Interface', 'uml:Artifact', 'uml:Enumeration' ]:
-            print('Ignore node ' + xmi_type)
+            #print('Ignore node ' + xmi_type)
             return
 
         try:
@@ -532,7 +539,7 @@ class ModelBuilder:
     #
     def _arrange_variables(self):
         for el in self._model['elements']:
-            if el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'variables':
+            if 'header' in el and el['xmi:type'] == 'uml:Class' and el.get('stereotype', '') == 'variables':
                 variables_group = {
                     'variables-group': el['name'],
                     'variables':  [ ]
