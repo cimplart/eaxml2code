@@ -516,7 +516,7 @@ class ModelBuilder:
 
     def _add_struct_fields(self, el, type):
         for a in self._model['attributes']:
-            if a['owner'] == el['xmi:id']:
+            if a['owner'] == el['xmi:id'] and 'description' in a and a['name']:
                 struct_el = {
                     'description': a['description'],
                     'type': a['type'],
