@@ -64,7 +64,7 @@
 					<ownedParameter xmi:id="EAID_RT000000_182B_432a_AE74_4B39C6B1337F" name="return" direction="return" type="EAC_void"/>
 				</ownedOperation>
 				<ownedOperation xmi:id="EAID_2D6E7808_1693_42ce_833C_0BB8F625765F" name="Det_GetVersionInfo" visibility="public" concurrency="sequential">
-					<ownedParameter xmi:id="EAID_061D8EA3_103B_4bbd_9772_62DC6D2277DA" name="versioninfo" direction="out" isStream="false" isException="false" isOrdered="false" isUnique="true" type="EAC_Std_VersionInfoType_"/>
+					<ownedParameter xmi:id="EAID_061D8EA3_103B_4bbd_9772_62DC6D2277DA" name="versioninfo" direction="out" isStream="false" isException="false" isOrdered="false" isUnique="true" type="EAC_Std_VersionInfoType"/>
 					<ownedParameter xmi:id="EAID_RT000000_1693_42ce_833C_0BB8F625765F" name="return" direction="return" type="EAC_void"/>
 				</ownedOperation>
 				<ownedOperation xmi:id="EAID_59D48677_0905_41e4_B63D_154DE2E5A350" name="Det_ReportErrorWithMessage" visibility="public" type="EAID_A494918D_7813_4d91_89FC_928771AE62A0" concurrency="sequential">
@@ -81,12 +81,12 @@
 			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_9AF8A129_7D74_4141_8BFA_5EA5209B37D0" name="Det.c" visibility="public"/>
 			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_27462F50_7118_40f3_9F3A_60C163FEBB98" visibility="public" supplier="EAID_CE623732_0F33_4f38_BDD0_5733B0FB576F" client="EAID_9AF8A129_7D74_4141_8BFA_5EA5209B37D0"/>
 			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_AA1A3F19_F405_4714_9EEF_57398F3FFF98" visibility="public" supplier="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3" client="EAID_9AF8A129_7D74_4141_8BFA_5EA5209B37D0"/>
+			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F" name="Std_Types.h" visibility="public"/>
 			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3" name="Det.h" visibility="public"/>
 			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_742A0295_F032_48c0_BC6C_7964F0A27881" visibility="public" supplier="EAID_B29C1A8A_D554_4516_979C_2E49BB0A9411" client="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3"/>
 			<packagedElement xmi:type="uml:Dependency" xmi:id="EAID_E298AE7D_8E36_48e3_8980_6DE51D3186A7" visibility="public" supplier="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F" client="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3"/>
 			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_CE623732_0F33_4f38_BDD0_5733B0FB576F" name="Det_MemMap.h" visibility="public"/>
 			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_B29C1A8A_D554_4516_979C_2E49BB0A9411" name="Det_Types.h" visibility="public"/>
-			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F" name="Std_Types.h" visibility="public"/>
 			<packagedElement xmi:type="uml:DataType" xmi:id="EAID_A494918D_7813_4d91_89FC_928771AE62A0" name="Std_ReturnType" visibility="public"/>
 		</packagedElement>
 		<C:typedef base_Class="EAID_DE915396_DEAA_45e4_97B3_66CB77D26F43"/>
@@ -566,7 +566,7 @@
 								<xrefs/>
 							</parameter>
 							<parameter xmi:idref="EAID_061D8EA3_103B_4bbd_9772_62DC6D2277DA" visibility="public">
-								<properties pos="0" type="Std_VersionInfoType*" const="false" ea_guid="{061D8EA3-103B-4bbd-9772-62DC6D2277DA}"/>
+								<properties pos="0" type="Std_VersionInfoType" const="false" ea_guid="{061D8EA3-103B-4bbd-9772-62DC6D2277DA}"/>
 								<style/>
 								<styleex/>
 								<documentation value="Pointer to where to store the version information of this module."/>
@@ -674,8 +674,21 @@
 					<Dependency xmi:id="EAID_AA1A3F19_F405_4714_9EEF_57398F3FFF98" start="EAID_9AF8A129_7D74_4141_8BFA_5EA5209B37D0" end="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3"/>
 				</links>
 			</element>
+			<element xmi:idref="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F" xmi:type="uml:Artifact" name="Std_Types.h" scope="public">
+				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="5" ea_localid="92" ea_eleType="element"/>
+				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 11:25:13" modified="2023-03-26 12:01:25" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Det"/>
+				<links>
+					<Dependency xmi:id="EAID_E298AE7D_8E36_48e3_8980_6DE51D3186A7" start="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3" end="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F"/>
+				</links>
+			</element>
 			<element xmi:idref="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3" xmi:type="uml:Artifact" name="Det.h" scope="public">
-				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="5" ea_localid="90" ea_eleType="element"/>
+				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="6" ea_localid="90" ea_eleType="element"/>
 				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<project author="Ruben Zimmermann" version="1.0" phase="1.0" created="2023-03-26 10:14:37" modified="2023-03-26 10:14:37" complexity="1" status="Proposed"/>
 				<code gentype="AUTOSAR"/>
@@ -690,7 +703,7 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_CE623732_0F33_4f38_BDD0_5733B0FB576F" xmi:type="uml:Artifact" name="Det_MemMap.h" scope="public">
-				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="6" ea_localid="91" ea_eleType="element"/>
+				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="7" ea_localid="91" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<project author="fixcheh" version="1.0" phase="1.0" created="2023-03-26 10:14:37" modified="2023-03-26 12:13:53" complexity="1" status="Proposed"/>
 				<code gentype="AUTOSAR"/>
@@ -703,7 +716,7 @@
 				</links>
 			</element>
 			<element xmi:idref="EAID_B29C1A8A_D554_4516_979C_2E49BB0A9411" xmi:type="uml:Artifact" name="Det_Types.h" scope="public">
-				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="7" ea_localid="94" ea_eleType="element"/>
+				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="8" ea_localid="94" ea_eleType="element"/>
 				<properties documentation="Generated: YES" isSpecification="false" sType="Artifact" nType="0" scope="public" stereotype="header" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 11:38:13" modified="2023-03-26 16:51:45" complexity="1" status="Proposed"/>
 				<code gentype="Java"/>
@@ -713,19 +726,6 @@
 				<extendedProperties tagged="0" package_name="Det"/>
 				<links>
 					<Dependency xmi:id="EAID_742A0295_F032_48c0_BC6C_7964F0A27881" start="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3" end="EAID_B29C1A8A_D554_4516_979C_2E49BB0A9411"/>
-				</links>
-			</element>
-			<element xmi:idref="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F" xmi:type="uml:Artifact" name="Std_Types.h" scope="public">
-				<model package="EAPK_4CAEA5C1_6101_46d8_A05A_BD45BE71CCF0" tpos="8" ea_localid="92" ea_eleType="element"/>
-				<properties documentation="Generated: Yes" isSpecification="false" sType="Artifact" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
-				<project author="Art" version="1.0" phase="1.0" created="2023-03-26 11:25:13" modified="2023-03-26 12:01:25" complexity="1" status="Proposed"/>
-				<code gentype="Java"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
-				<tags/>
-				<xrefs/>
-				<extendedProperties tagged="0" package_name="Det"/>
-				<links>
-					<Dependency xmi:id="EAID_E298AE7D_8E36_48e3_8980_6DE51D3186A7" start="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3" end="EAID_61259951_3F6E_47bc_A339_F02C8FAFC78F"/>
 				</links>
 			</element>
 			<element xmi:idref="EAID_A494918D_7813_4d91_89FC_928771AE62A0" xmi:type="uml:DataType" name="Std_ReturnType" scope="public">
@@ -839,39 +839,6 @@
 				<xrefs value="$XREFPROP=$XID={D5F91C60-6A66-432e-B779-0B433A354841}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;@ENDSTEREO;$DES;$CLT={AA1A3F19-F405-4714-9EEF-57398F3FFF98}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<tags/>
 			</connector>
-			<connector xmi:idref="EAID_742A0295_F032_48c0_BC6C_7964F0A27881">
-				<source xmi:idref="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3">
-					<model ea_localid="90" type="Artifact" name="Det.h"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</source>
-				<target xmi:idref="EAID_B29C1A8A_D554_4516_979C_2E49BB0A9411">
-					<model ea_localid="94" type="Artifact" name="Det_Types.h"/>
-					<role visibility="Public" targetScope="instance"/>
-					<type aggregation="none" containment="Unspecified"/>
-					<constraints/>
-					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
-					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
-					<documentation/>
-					<xrefs/>
-					<tags/>
-				</target>
-				<model ea_localid="214"/>
-				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
-				<documentation/>
-				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
-				<labels mb="«include»"/>
-				<extendedProperties/>
-				<style/>
-				<xrefs value="$XREFPROP=$XID={E2CA876E-9F5E-4120-8739-BB88156A39CB}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;@ENDSTEREO;$DES;$CLT={742A0295-F032-48c0-BC6C-7964F0A27881}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
-				<tags/>
-			</connector>
 			<connector xmi:idref="EAID_E298AE7D_8E36_48e3_8980_6DE51D3186A7">
 				<source xmi:idref="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3">
 					<model ea_localid="90" type="Artifact" name="Det.h"/>
@@ -905,6 +872,39 @@
 				<xrefs value="$XREFPROP=$XID={ACABF93C-F06A-452a-9A40-F235A0A70D55}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;@ENDSTEREO;$DES;$CLT={E298AE7D-8E36-48e3-8980-6DE51D3186A7}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<tags/>
 			</connector>
+			<connector xmi:idref="EAID_742A0295_F032_48c0_BC6C_7964F0A27881">
+				<source xmi:idref="EAID_7ED37C20_0AC9_4187_83C8_D9B2228D71B3">
+					<model ea_localid="90" type="Artifact" name="Det.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Non-Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_B29C1A8A_D554_4516_979C_2E49BB0A9411">
+					<model ea_localid="94" type="Artifact" name="Det_Types.h"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="214"/>
+				<properties ea_type="Dependency" stereotype="include" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mb="«include»"/>
+				<extendedProperties/>
+				<style/>
+				<xrefs value="$XREFPROP=$XID={E2CA876E-9F5E-4120-8739-BB88156A39CB}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=include;@ENDSTEREO;$DES;$CLT={742A0295-F032-48c0-BC6C-7964F0A27881}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<tags/>
+			</connector>
 		</connectors>
 		<primitivetypes>
 			<packagedElement xmi:type="uml:Package" xmi:id="EAPrimitiveTypesPackage" name="EA_PrimitiveTypes_Package" visibility="public">
@@ -922,7 +922,7 @@
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_void" name="void" visibility="public"/>
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_uint16" name="uint16" visibility="public"/>
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_uint8" name="uint8" visibility="public"/>
-					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_Std_VersionInfoType_" name="Std_VersionInfoType*" visibility="public"/>
+					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_Std_VersionInfoType" name="Std_VersionInfoType" visibility="public"/>
 					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAC_char_" name="char*" visibility="public"/>
 				</packagedElement>
 			</packagedElement>
